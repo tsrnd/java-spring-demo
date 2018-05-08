@@ -36,10 +36,10 @@ public class Intro {
 
 	public static void main(String[] args) {
 		Intro intro = new Intro();
-		List<Integer> input = Arrays.asList(10, -1, 1, -1, -1, 2, 4, 3, -1, -1, 7, 5);
+		List<Integer> input = Arrays.asList(-1, 150, 190, 170, -1, -1, 160, 180);
 		List<Integer> output = intro.sortByHeight(input);
 		for (int i : output) {
-			System.out.println(i);
+			System.out.print(i + " ");
 		}
 	}
 
