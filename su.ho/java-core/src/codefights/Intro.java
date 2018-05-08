@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class Intro {
 
@@ -19,12 +21,10 @@ public class Intro {
 	 */
 	List<Integer> sortByHeight(List<Integer> input) {
 		List<Integer> indexs = new ArrayList<>();
-		List<Integer> availableInput = new ArrayList<>();
+		List<Integer> availableInput = input.stream().filter(Predic.availableValue()).collect(Collectors.toList());
 		for (int i = 0; i < input.size(); i++) {
 			if (input.get(i) == -1) {
 				indexs.add(i);
-			} else {
-				availableInput.add(input.get(i));
 			}
 		}
 		Collections.sort(availableInput);
