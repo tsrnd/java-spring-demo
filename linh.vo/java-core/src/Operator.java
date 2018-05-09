@@ -71,7 +71,7 @@ public class Operator {
 		System.out.println(20>>3);//20/2^3=20/8=2  
 	}
 
-	// Java Shift Operator Example: >> vs >>>
+	// Java Shift Operator Example: >> and >>>
 	void operator_8() {
 		//For positive number, >> and >>> works same  
 		System.out.println(20>>2);//5
