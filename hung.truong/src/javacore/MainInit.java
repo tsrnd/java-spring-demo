@@ -1,4 +1,4 @@
-package hung.truong;
+package javacore;
 
 public class MainInit {
 
