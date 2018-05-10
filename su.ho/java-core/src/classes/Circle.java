@@ -26,7 +26,6 @@ public class Circle {
 		return Math.PI * radius * radius;
 	}
 	
-	@Override
 	public String toString() {
 		return "radius: " + getRadius() + "\ncolor: " + getColor() + "\narea: " + getArea();
 	}
@@ -34,5 +33,5 @@ public class Circle {
 	public static void main(String[] args) {
 		Circle circle = new Circle();
 		System.out.println("Circle:\n" + circle.toString());
-	}	
+	}
 }
