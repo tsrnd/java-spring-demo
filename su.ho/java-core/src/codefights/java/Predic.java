@@ -1,4 +1,4 @@
-package codefights;
+package codefights.java;
 
 import java.util.function.Predicate;
 
