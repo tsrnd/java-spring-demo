@@ -1,4 +1,4 @@
-package classes;
+package classes.inheritance;
 
 public class Cylinder extends Circle {
 	private double height;

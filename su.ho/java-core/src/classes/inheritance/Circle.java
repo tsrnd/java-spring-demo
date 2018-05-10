@@ -1,4 +1,4 @@
-package classes;
+package classes.inheritance;
 
 public class Circle {
 	private double radius;

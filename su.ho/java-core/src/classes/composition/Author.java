@@ -1,4 +1,4 @@
-package classes;
+package classes.composition;
 
 public class Author {
 	private String name;
