@@ -31,5 +31,9 @@ public class MovablePoint implements Movable {
 	public void moveRight() {
 		System.out.println("MoveRight");
 	}
-
+	
+	public static void main(String[] args) {
+		MovablePoint point = new MovablePoint(0, 0, 10, 10);
+		point.moveDown();
+	}
 }
