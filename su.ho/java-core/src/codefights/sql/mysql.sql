@@ -51,4 +51,17 @@ END
 
 
 
-    
+CREATE PROCEDURE gradeDistribution()
+BEGIN
+	select t.Name, t.ID from (select Name, ID, (0.25*Midterm1 + 0.25*Midterm2 + 0.5*Final) as op1, (0.5*Midterm1 + 0.5*Midterm2) as op2, (Final) as op3 from Grades) as t where t.op3 > t.op1 and t.op3 > t.op2 order by left(t.Name, 3), t.ID;
+END
+
+
+
+CREATE PROCEDURE mischievousNephews()
+BEGIN
+	select (WEEKDAY(mischief_date)) as weekday, mischief_date, author, title from mischief order by weekday, author = "Louie", author = "Dewey", author = "Huey", mischief_date, title;
+END
+
+
+
