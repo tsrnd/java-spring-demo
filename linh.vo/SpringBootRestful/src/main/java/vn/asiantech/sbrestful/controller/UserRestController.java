@@ -41,7 +41,7 @@ public class UserRestController {
 	}
 	
 	// get all users
-	@RequestMapping(value = "/users", method = RequestMethod.GET)
+	@RequestMapping(value = "/userss", method = RequestMethod.GET)
 	public ResponseEntity<List<User>> getAllUser() {
 		List<User> listUser = userRepository.findAll();
 		return new ResponseEntity<List<User>>(listUser, HttpStatus.OK);
