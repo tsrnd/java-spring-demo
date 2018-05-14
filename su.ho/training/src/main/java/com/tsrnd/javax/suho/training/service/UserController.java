@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tsrnd.javax.suho.training.business.UserManager;
@@ -34,9 +35,11 @@ public class UserController {
 		return ResponseEntity.status(response.getHttpStatus()).body(response);
 	}
 
-	@PostMapping
-	public ResponseEntity<Response> create(@RequestBody User user) {
+	@PostMapping(produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
+	public ResponseEntity<Response> create(@RequestParam(value = "username", required = true) String username,
+			@RequestParam(value = "password", required = true) String password) {
 		Response response = new Response();
+		User user = new User(username, password);
 		User userSaved = userManager.save(user);
 		response.setData(userSaved);
 		return ResponseEntity.status(response.getHttpStatus()).body(response);
@@ -71,7 +74,7 @@ public class UserController {
 		}
 		return ResponseEntity.status(response.getHttpStatus()).body(response);
 	}
-	
+
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Response> delete(@PathVariable(value = "id") Long id) {
 		Response response = new Response();
