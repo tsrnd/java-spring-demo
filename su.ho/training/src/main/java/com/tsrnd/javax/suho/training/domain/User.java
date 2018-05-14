@@ -2,22 +2,34 @@ package com.tsrnd.javax.suho.training.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 @Entity
-@JsonIgnoreProperties(value = { "password" })
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class User {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String username;
+	@JsonIgnore
 	private String password;
+	
+	public User() {
+		super();
+	}
 
 	public User(Long id, String username, String password) {
-		super();
 		this.id = id;
+		this.username = username;
+		this.password = password;
+	}
+
+	public User(String username, String password) {
+		super();
 		this.username = username;
 		this.password = password;
 	}
