@@ -30,4 +30,8 @@ public class UserManager {
 			return null;
 		}
 	}
+	
+	public void delete(User user) {
+		userRepository.delete(user);
+	}
 }
