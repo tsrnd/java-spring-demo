@@ -31,6 +31,14 @@ public class UserManager {
 		}
 	}
 	
+	public User get(String username) {
+		return userRepository.user(username);
+	}
+	
+	public User get(String username, String password) {
+		return userRepository.user(username, password);
+	}
+	
 	public void delete(User user) {
 		userRepository.delete(user);
 	}

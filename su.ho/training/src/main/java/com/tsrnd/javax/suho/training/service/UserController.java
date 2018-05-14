@@ -39,9 +39,13 @@ public class UserController {
 	public ResponseEntity<Response> create(@RequestParam(value = "username", required = true) String username,
 			@RequestParam(value = "password", required = true) String password) {
 		Response response = new Response();
-		User user = new User(username, password);
-		User userSaved = userManager.save(user);
-		response.setData(userSaved);
+		if (userManager.get(username) != null) {
+			response = new Response(HttpStatus.CREATED, "/users/");
+		} else {
+			User user = new User(username, password);
+			User userSaved = userManager.save(user);
+			response.setData(userSaved);
+		}
 		return ResponseEntity.status(response.getHttpStatus()).body(response);
 	}
 
