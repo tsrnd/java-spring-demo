@@ -9,11 +9,11 @@ public interface UserProvider {
 	
 	public User save(User user);
 	
-	public User get(Long id);
+	public User findById(Long id);
 	
-	public User get(String username);
+	public User findByUsername(String username);
 	
-	public User get(String username, String password);
+	public User findByUsernameAndPassword(String username, String password);
 	
 	public void delete(User user);
 }

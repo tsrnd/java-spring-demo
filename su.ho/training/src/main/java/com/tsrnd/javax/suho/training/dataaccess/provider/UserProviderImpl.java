@@ -26,7 +26,7 @@ public class UserProviderImpl implements UserProvider {
 	}
 
 	@Override
-	public User get(Long id) {
+	public User findById(Long id) {
 		Optional<User> user = userRepository.findById(id); 
 		if (user.isPresent()) {
 			return user.get();
@@ -36,13 +36,13 @@ public class UserProviderImpl implements UserProvider {
 	}
 
 	@Override
-	public User get(String username) {
-		return userRepository.user(username);
+	public User findByUsername(String username) {
+		return userRepository.findByUsername(username);
 	}
 
 	@Override
-	public User get(String username, String password) {
-		return userRepository.user(username, password);
+	public User findByUsernameAndPassword(String username, String password) {
+		return userRepository.findByUsernameAndPassword(username, password);
 	}
 
 	@Override

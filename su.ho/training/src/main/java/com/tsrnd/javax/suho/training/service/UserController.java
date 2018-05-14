@@ -39,7 +39,7 @@ public class UserController {
 	public ResponseEntity<Response> create(@RequestParam(value = "username", required = true) String username,
 			@RequestParam(value = "password", required = true) String password) {
 		Response response = new Response();
-		if (userManager.get(username) != null) {
+		if (userManager.findByUsername(username) != null) {
 			response = new Response(HttpStatus.CREATED, "/users/");
 		} else {
 			User user = new User(username, password);
@@ -52,7 +52,7 @@ public class UserController {
 	@GetMapping("/{id}")
 	public ResponseEntity<Response> detail(@PathVariable(value = "id") Long id) {
 		Response response = new Response();
-		User user = userManager.get(id);
+		User user = userManager.findById(id);
 		if (user != null) {
 			response.setData(user);
 		} else {
@@ -66,7 +66,7 @@ public class UserController {
 			@RequestBody HashMap<String, Object> json) {
 		Response response = new Response();
 		String password = (String) json.get("password");
-		User user = userManager.get(id);
+		User user = userManager.findById(id);
 		if (user != null) {
 			if (password != null) {
 				user.setPassword(password);
@@ -82,7 +82,7 @@ public class UserController {
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Response> delete(@PathVariable(value = "id") Long id) {
 		Response response = new Response();
-		User user = userManager.get(id);
+		User user = userManager.findById(id);
 		if (user != null) {
 			userManager.delete(user);
 			response.setData(user);

@@ -23,7 +23,7 @@ public class AuthController {
 	public ResponseEntity<Response> signIn(@RequestParam(value = "username", required = true) String username,
 			@RequestParam(value = "password", required = true) String password) {
 		Response response = new Response();
-		User user = userManager.get(username, password);
+		User user = userManager.findByUsernameAndPassword(username, password);
 		if (user == null) {
 			response = new Response(HttpStatus.UNAUTHORIZED, "/auth/");
 		} else {

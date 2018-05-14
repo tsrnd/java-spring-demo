@@ -21,16 +21,16 @@ public class UserManager {
 		return userProvider.save(user);
 	}
 	
-	public User get(Long id) {
-		return userProvider.get(id);
+	public User findById(Long id) {
+		return userProvider.findById(id);
 	}
 	
-	public User get(String username) {
-		return userProvider.get(username);
+	public User findByUsername(String username) {
+		return userProvider.findByUsername(username);
 	}
 	
-	public User get(String username, String password) {
-		return userProvider.get(username, password);
+	public User findByUsernameAndPassword(String username, String password) {
+		return userProvider.findByUsernameAndPassword(username, password);
 	}
 	
 	public void delete(User user) {
