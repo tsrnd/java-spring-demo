@@ -1,45 +1,39 @@
 package com.tsrnd.javax.suho.training.business;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.tsrnd.javax.suho.training.dataaccess.repository.UserRepository;
+import com.tsrnd.javax.suho.training.dataaccess.provider.UserProvider;
 import com.tsrnd.javax.suho.training.domain.User;
 
 @Component
 public class UserManager {
 	@Autowired
-	UserRepository userRepository;
+	UserProvider userProvider;
 	
 	public List<User> findAll() {
-		return userRepository.findAll();
+		return userProvider.findAll();
 	}
 	
 	public User save(User user) {
-		return userRepository.save(user);
+		return userProvider.save(user);
 	}
 	
 	public User get(Long id) {
-		Optional<User> user = userRepository.findById(id); 
-		if (user.isPresent()) {
-			return user.get();
-		} else {
-			return null;
-		}
+		return userProvider.get(id);
 	}
 	
 	public User get(String username) {
-		return userRepository.user(username);
+		return userProvider.get(username);
 	}
 	
 	public User get(String username, String password) {
-		return userRepository.user(username, password);
+		return userProvider.get(username, password);
 	}
 	
 	public void delete(User user) {
-		userRepository.delete(user);
+		userProvider.delete(user);
 	}
 }
