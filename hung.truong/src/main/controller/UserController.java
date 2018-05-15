@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import main.business.UserManager;
+import main.business.UserSubscriberManager;
 import main.domain.ResponseData;
 import main.domain.User;
 
@@ -23,6 +24,9 @@ public class UserController {
 
 	@Autowired
 	private UserManager userManager;
+
+	@Autowired
+	private UserSubscriberManager subscriberManager;
 
 	@GetMapping("/getAllUsers")
 	public ResponseEntity<ResponseData> getAllUsers() {
@@ -58,8 +62,13 @@ public class UserController {
 		return ResponseEntity.status(result.getStatus()).body(result);
 	}
 
-	@GetMapping("/user/{username}")
+	@GetMapping("/{username}")
 	public ResponseEntity<ResponseData> getUserByName(@PathVariable("username") String username) {
 		return ResponseEntity.ok(userManager.getUserByName(username));
+	}
+
+	@GetMapping("/{userId}/subscribers")
+	public ResponseEntity<ResponseData> getSubscribers(@PathVariable("userId") long userId) {
+		return subscriberManager.getSubscribers(userId);
 	}
 }
