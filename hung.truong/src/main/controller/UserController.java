@@ -57,4 +57,9 @@ public class UserController {
 		ResponseData result = userManager.deleteUser(userId);
 		return ResponseEntity.status(result.getStatus()).body(result);
 	}
+
+	@GetMapping("/user/{username}")
+	public ResponseEntity<ResponseData> getUserByName(@PathVariable("username") String username) {
+		return ResponseEntity.ok(userManager.getUserByName(username));
+	}
 }
