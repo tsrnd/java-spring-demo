@@ -6,28 +6,23 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.tsrnd.javax.suho.training.dataaccess.repository.UserRepository;
+import com.tsrnd.javax.suho.training.dataaccess.repository.UserQueryRepository;
 import com.tsrnd.javax.suho.training.domain.entity.UserEntity;
 
 @Component
-public class UserProviderImpl implements UserProvider {
+public class UserQueryProviderImpl implements UserQueryProvider {
 	
 	@Autowired
-	UserRepository userRepository;
+	UserQueryRepository userQueryRepository;
 
 	@Override
 	public List<UserEntity> findAll() {
-		return userRepository.findAll();
-	}
-
-	@Override
-	public UserEntity save(UserEntity user) {
-		return userRepository.save(user);
+		return userQueryRepository.findAll();
 	}
 
 	@Override
 	public UserEntity findById(Long id) {
-		Optional<UserEntity> user = userRepository.findById(id); 
+		Optional<UserEntity> user = userQueryRepository.findById(id); 
 		if (user.isPresent()) {
 			return user.get();
 		} else {
@@ -37,17 +32,11 @@ public class UserProviderImpl implements UserProvider {
 
 	@Override
 	public UserEntity findByUsername(String username) {
-		return userRepository.findByUsername(username);
+		return userQueryRepository.findByUsername(username);
 	}
 
 	@Override
 	public UserEntity findByUsernameAndPassword(String username, String password) {
-		return userRepository.findByUsernameAndPassword(username, password);
+		return userQueryRepository.findByUsernameAndPassword(username, password);
 	}
-
-	@Override
-	public void delete(UserEntity user) {
-		userRepository.delete(user);
-	}
-
 }

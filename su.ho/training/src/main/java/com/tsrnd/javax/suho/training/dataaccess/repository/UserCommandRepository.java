@@ -6,7 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.tsrnd.javax.suho.training.domain.entity.UserEntity;
 
 @Repository
-public interface UserRepository extends JpaRepository<UserEntity, Long> {
-	public UserEntity findByUsername(String username);
-	public UserEntity findByUsernameAndPassword(String username, String password);
+public interface UserCommandRepository extends JpaRepository<UserEntity, Long> {	
 }
