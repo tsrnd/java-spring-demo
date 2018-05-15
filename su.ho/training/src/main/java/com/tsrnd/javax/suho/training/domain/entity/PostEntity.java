@@ -5,7 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PostEntity {
 	@Id
 	@GeneratedValue
