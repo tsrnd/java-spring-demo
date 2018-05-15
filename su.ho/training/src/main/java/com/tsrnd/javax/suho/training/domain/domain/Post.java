@@ -2,8 +2,6 @@ package com.tsrnd.javax.suho.training.domain.domain;
 
 import java.util.List;
 
-import org.apache.catalina.User;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
