@@ -13,7 +13,7 @@ import com.tsrnd.javax.suho.training.domain.entity.UserEntity;
 public class UserQueryProviderImpl implements UserQueryProvider {
 	
 	@Autowired
-	UserQueryRepository userQueryRepository;
+	private UserQueryRepository userQueryRepository;
 
 	@Override
 	public List<UserEntity> findAll() {

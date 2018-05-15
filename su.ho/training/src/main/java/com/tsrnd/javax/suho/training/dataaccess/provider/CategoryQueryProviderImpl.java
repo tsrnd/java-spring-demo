@@ -13,7 +13,7 @@ import com.tsrnd.javax.suho.training.domain.entity.CategoryEntity;
 public class CategoryQueryProviderImpl implements CategoryQueryProvider {
 	
 	@Autowired
-	CategoryQueryRepository categoryQueryRepository;
+	private CategoryQueryRepository categoryQueryRepository;
 
 	@Override
 	public List<CategoryEntity> findAll() {

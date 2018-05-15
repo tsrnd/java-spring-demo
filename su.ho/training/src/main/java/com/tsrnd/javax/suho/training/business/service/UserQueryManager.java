@@ -11,7 +11,7 @@ import com.tsrnd.javax.suho.training.domain.entity.UserEntity;
 @Component
 public class UserQueryManager {
 	@Autowired
-	UserQueryProvider userQueryProvider;
+	private UserQueryProvider userQueryProvider;
 	
 	public List<UserEntity> findAll() {
 		return userQueryProvider.findAll();

@@ -12,7 +12,7 @@ import com.tsrnd.javax.suho.training.domain.domain.Post;
 public class PostQueryProviderImpl implements PostQueryProvider {
 
 	@Autowired
-	PostQueryRepository postQueryRepository;
+	private PostQueryRepository postQueryRepository;
 
 	@Override
 	public List<Post> findAll() {

@@ -9,7 +9,7 @@ import com.tsrnd.javax.suho.training.domain.entity.CategoryEntity;
 @Component
 public class CategoryCommandManager {
 	@Autowired
-	CategoryCommandProvider categoryCommandProvider;
+	private CategoryCommandProvider categoryCommandProvider;
 	
 	public CategoryEntity save(CategoryEntity category) {
 		return categoryCommandProvider.save(category);

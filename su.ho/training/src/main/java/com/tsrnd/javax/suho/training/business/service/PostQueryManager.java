@@ -12,7 +12,7 @@ import com.tsrnd.javax.suho.training.domain.domain.Post;
 public class PostQueryManager {
 
 	@Autowired
-	PostQueryProvider postQueryProvider;
+	private PostQueryProvider postQueryProvider;
 	
 	public List<Post> findAll() {
 		return postQueryProvider.findAll();

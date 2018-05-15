@@ -10,7 +10,7 @@ import com.tsrnd.javax.suho.training.domain.entity.CategoryEntity;
 public class CategoryCommandProviderImpl implements CategoryCommandProvider {
 	
 	@Autowired
-	CategoryCommandRepository categoryCommandRepository;
+	private CategoryCommandRepository categoryCommandRepository;
 
 	@Override
 	public CategoryEntity save(CategoryEntity category) {

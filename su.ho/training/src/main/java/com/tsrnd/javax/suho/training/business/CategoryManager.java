@@ -12,10 +12,10 @@ import com.tsrnd.javax.suho.training.domain.entity.CategoryEntity;
 @Component
 public class CategoryManager {
 	@Autowired
-	CategoryQueryProvider categoryQueryProvider;
+	private CategoryQueryProvider categoryQueryProvider;
 	
 	@Autowired
-	CategoryCommandProvider categoryCommandProvider;
+	private CategoryCommandProvider categoryCommandProvider;
 	
 	public List<CategoryEntity> findAll() {
 		return categoryQueryProvider.findAll();

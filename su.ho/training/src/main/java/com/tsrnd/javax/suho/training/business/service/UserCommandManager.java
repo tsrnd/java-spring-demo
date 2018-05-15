@@ -9,7 +9,7 @@ import com.tsrnd.javax.suho.training.domain.entity.UserEntity;
 @Component
 public class UserCommandManager {
 	@Autowired
-	UserCommandProvider userCommandProvider;
+	private UserCommandProvider userCommandProvider;
 	
 	public UserEntity save(UserEntity user) {
 		return userCommandProvider.save(user);

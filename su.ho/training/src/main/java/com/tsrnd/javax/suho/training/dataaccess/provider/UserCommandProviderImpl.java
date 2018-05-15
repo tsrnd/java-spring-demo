@@ -10,7 +10,7 @@ import com.tsrnd.javax.suho.training.domain.entity.UserEntity;
 public class UserCommandProviderImpl implements UserCommandProvider {
 	
 	@Autowired
-	UserCommandRepository userCommandRepository;
+	private UserCommandRepository userCommandRepository;
 
 	@Override
 	public UserEntity save(UserEntity user) {

@@ -11,7 +11,7 @@ import com.tsrnd.javax.suho.training.domain.entity.CategoryEntity;
 @Component
 public class CategoryQueryManager {
 	@Autowired
-	CategoryQueryProvider categoryQueryProvider;
+	private CategoryQueryProvider categoryQueryProvider;
 	
 	public List<CategoryEntity> findAll() {
 		return categoryQueryProvider.findAll();

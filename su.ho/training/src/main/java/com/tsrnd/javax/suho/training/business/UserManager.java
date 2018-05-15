@@ -12,10 +12,10 @@ import com.tsrnd.javax.suho.training.domain.entity.UserEntity;
 @Component
 public class UserManager {
 	@Autowired
-	UserCommandManager userCommandManager;
+	private UserCommandManager userCommandManager;
 	
 	@Autowired
-	UserQueryManager userQueryManager;
+	private UserQueryManager userQueryManager;
 	
 	public List<UserEntity> findAll() {
 		return userQueryManager.findAll();
