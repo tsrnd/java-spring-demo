@@ -6,38 +6,27 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.tsrnd.javax.suho.training.dataaccess.repository.CategoryRepository;
+import com.tsrnd.javax.suho.training.dataaccess.repository.CategoryQueryRepository;
 import com.tsrnd.javax.suho.training.domain.entity.CategoryEntity;
 
 @Component
-public class CategoryProviderImpl implements CategoryProvider {
+public class CategoryQueryProviderImpl implements CategoryQueryProvider {
 	
 	@Autowired
-	CategoryRepository categoryRepository;
+	CategoryQueryRepository categoryQueryRepository;
 
 	@Override
 	public List<CategoryEntity> findAll() {
-		return categoryRepository.findAll();
-	}
-
-	@Override
-	public CategoryEntity save(CategoryEntity category) {
-		return categoryRepository.save(category);
+		return categoryQueryRepository.findAll();
 	}
 
 	@Override
 	public CategoryEntity get(Long id) {
-		Optional<CategoryEntity> category = categoryRepository.findById(id);
+		Optional<CategoryEntity> category = categoryQueryRepository.findById(id);
 		if (category.isPresent()) {
 			return category.get();
 		} else {
 			return null;
 		}
 	}
-
-	@Override
-	public void delete(CategoryEntity category) {
-		categoryRepository.delete(category);
-	}
-
 }

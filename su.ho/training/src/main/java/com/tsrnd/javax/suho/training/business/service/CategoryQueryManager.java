@@ -1,35 +1,22 @@
-package com.tsrnd.javax.suho.training.business;
+package com.tsrnd.javax.suho.training.business.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.tsrnd.javax.suho.training.dataaccess.provider.CategoryCommandProvider;
 import com.tsrnd.javax.suho.training.dataaccess.provider.CategoryQueryProvider;
 import com.tsrnd.javax.suho.training.domain.entity.CategoryEntity;
 
 @Component
-public class CategoryManager {
+public class CategoryQueryManager {
 	@Autowired
 	CategoryQueryProvider categoryQueryProvider;
-	
-	@Autowired
-	CategoryCommandProvider categoryCommandProvider;
 	
 	public List<CategoryEntity> findAll() {
 		return categoryQueryProvider.findAll();
 	}
-	
-	public CategoryEntity save(CategoryEntity category) {
-		return categoryCommandProvider.save(category);
-	}
-	
 	public CategoryEntity get(Long id) {
 		return categoryQueryProvider.get(id);
-	}
-	
-	public void delete(CategoryEntity category) {
-		categoryCommandProvider.delete(category);
 	}
 }

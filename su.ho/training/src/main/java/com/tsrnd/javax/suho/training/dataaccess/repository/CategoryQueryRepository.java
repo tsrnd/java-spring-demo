@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.tsrnd.javax.suho.training.domain.entity.CategoryEntity;
 
 @Repository
-public interface CategoryRepository extends JpaRepository<CategoryEntity, Long> {
+public interface CategoryQueryRepository extends JpaRepository<CategoryEntity, Long> {
 }
