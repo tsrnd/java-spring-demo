@@ -1,4 +1,4 @@
-package com.tsrnd.javax.suho.training.domain;
+package com.tsrnd.javax.suho.training.domain.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,24 +6,24 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Category {
+public class CategoryEntity {
 	@Id
 	@GeneratedValue
 	private Long id;
 	@NotNull
 	private String title;
 	
-	public Category() {
+	public CategoryEntity() {
 		super();
 	}
 	
-	public Category(Long id, @NotNull String title) {
+	public CategoryEntity(Long id, @NotNull String title) {
 		super();
 		this.id = id;
 		this.title = title;
 	}
 	
-	public Category(@NotNull String title) {
+	public CategoryEntity(@NotNull String title) {
 		super();
 		this.title = title;
 	}

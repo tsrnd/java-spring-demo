@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tsrnd.javax.suho.training.business.CategoryManager;
-import com.tsrnd.javax.suho.training.domain.Category;
-import com.tsrnd.javax.suho.training.domain.Response;
+import com.tsrnd.javax.suho.training.domain.domain.Response;
+import com.tsrnd.javax.suho.training.domain.entity.CategoryEntity;
 
 @RestController
 @RequestMapping("/api/categories")
@@ -30,7 +30,7 @@ public class CategoryController {
 	@GetMapping
 	public ResponseEntity<Response> get() {
 		Response response = new Response();
-		List<Category> categories = categoryManager.findAll();
+		List<CategoryEntity> categories = categoryManager.findAll();
 		response.setData(categories);
 		return ResponseEntity.status(response.getHttpStatus()).body(response);
 	}
@@ -38,7 +38,7 @@ public class CategoryController {
 	@PostMapping
 	public ResponseEntity<Response> create(@RequestParam(value = "title", required = true) String title) {
 		Response response = new Response();
-		Category category = new Category(title);
+		CategoryEntity category = new CategoryEntity(title);
 		category = categoryManager.save(category);
 		response.setData(category);
 		return ResponseEntity.status(response.getHttpStatus()).body(response);
@@ -47,7 +47,7 @@ public class CategoryController {
 	@GetMapping("/{id}")
 	public ResponseEntity<Response> detail(@PathVariable(value = "id") Long id) {
 		Response response = new Response();
-		Category category = categoryManager.get(id);
+		CategoryEntity category = categoryManager.get(id);
 		if (category != null) {
 			response.setData(category);
 		} else {
@@ -61,7 +61,7 @@ public class CategoryController {
 			@RequestBody HashMap<String, Object> json) {
 		Response response = new Response();
 		String title = (String) json.get("title");
-		Category category = categoryManager.get(id);
+		CategoryEntity category = categoryManager.get(id);
 		if (category != null) {
 			if (title != null) {
 				category.setTitle(title);
@@ -77,7 +77,7 @@ public class CategoryController {
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Response> delete(@PathVariable(value = "id") Long id) {
 		Response response = new Response();
-		Category category = categoryManager.get(id);
+		CategoryEntity category = categoryManager.get(id);
 		if (category != null) {
 			categoryManager.delete(category);
 			response.setData(category);

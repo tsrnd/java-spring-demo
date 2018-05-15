@@ -1,4 +1,4 @@
-package com.tsrnd.javax.suho.training.domain;
+package com.tsrnd.javax.suho.training.domain.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 @Entity
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class User {
+public class UserEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -21,24 +21,24 @@ public class User {
 	@NotNull
 	private String password;
 	
-	public User() {
+	public UserEntity() {
 		super();
 	}
 
-	public User(Long id, String username, String password) {
+	public UserEntity(Long id, String username, String password) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
 	}
 
-	public User(String username, String password) {
+	public UserEntity(String username, String password) {
 		super();
 		this.username = username;
 		this.password = password;
 	}
 	
-	public User(String password) {
+	public UserEntity(String password) {
 		super();
 		this.password = password;
 	}

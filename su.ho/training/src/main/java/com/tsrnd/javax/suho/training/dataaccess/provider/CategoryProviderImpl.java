@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.tsrnd.javax.suho.training.dataaccess.repository.CategoryRepository;
-import com.tsrnd.javax.suho.training.domain.Category;
+import com.tsrnd.javax.suho.training.domain.entity.CategoryEntity;
 
 @Component
 public class CategoryProviderImpl implements CategoryProvider {
@@ -16,18 +16,18 @@ public class CategoryProviderImpl implements CategoryProvider {
 	CategoryRepository categoryRepository;
 
 	@Override
-	public List<Category> findAll() {
+	public List<CategoryEntity> findAll() {
 		return categoryRepository.findAll();
 	}
 
 	@Override
-	public Category save(Category category) {
+	public CategoryEntity save(CategoryEntity category) {
 		return categoryRepository.save(category);
 	}
 
 	@Override
-	public Category get(Long id) {
-		Optional<Category> category = categoryRepository.findById(id);
+	public CategoryEntity get(Long id) {
+		Optional<CategoryEntity> category = categoryRepository.findById(id);
 		if (category.isPresent()) {
 			return category.get();
 		} else {
@@ -36,7 +36,7 @@ public class CategoryProviderImpl implements CategoryProvider {
 	}
 
 	@Override
-	public void delete(Category category) {
+	public void delete(CategoryEntity category) {
 		categoryRepository.delete(category);
 	}
 

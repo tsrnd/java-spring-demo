@@ -1,48 +1,40 @@
-package com.tsrnd.javax.suho.training.domain;
+package com.tsrnd.javax.suho.training.domain.entity;
 
 import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @Entity
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Comment {
+public class CommentEntity {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@ManyToOne
 	@NotNull
-	private User user;
-	@ManyToOne
+	private Long userId;
 	@NotNull
-	private Post post;
+	private Long postId;
 	@NotNull
 	private String content;
 	@NotNull
 	private Date createdAt;
 	
-	public Comment() {
+	public CommentEntity() {
 		super();
 	}
 
-	public Comment(Long id, @NotNull User user, @NotNull String content, @NotNull Date createdAt) {
+	public CommentEntity(Long id, @NotNull Long userId, @NotNull Long postId, @NotNull String content, @NotNull Date createdAt) {
 		super();
 		this.id = id;
-		this.user = user;
+		this.userId = userId;
+		this.postId = postId;
 		this.content = content;
 		this.createdAt = createdAt;
-	}
-	
-	public Comment(@NotNull User user, @NotNull String content) {
-		super();
-		this.user = user;
-		this.content = content;
-		this.createdAt = new Date();
 	}
 	
 	public Long getId() {
@@ -51,14 +43,6 @@ public class Comment {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 	public String getContent() {
@@ -76,4 +60,22 @@ public class Comment {
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public Long getPostId() {
+		return postId;
+	}
+
+	public void setPostId(Long postId) {
+		this.postId = postId;
+	}
+	
+	
 }

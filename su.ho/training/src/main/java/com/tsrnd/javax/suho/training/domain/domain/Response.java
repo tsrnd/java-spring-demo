@@ -1,4 +1,4 @@
-package com.tsrnd.javax.suho.training.domain;
+package com.tsrnd.javax.suho.training.domain.domain;
 
 import java.util.Date;
 

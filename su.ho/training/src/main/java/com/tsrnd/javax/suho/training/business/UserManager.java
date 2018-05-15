@@ -6,34 +6,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.tsrnd.javax.suho.training.dataaccess.provider.UserProvider;
-import com.tsrnd.javax.suho.training.domain.User;
+import com.tsrnd.javax.suho.training.domain.entity.UserEntity;
 
 @Component
 public class UserManager {
 	@Autowired
 	UserProvider userProvider;
 	
-	public List<User> findAll() {
+	public List<UserEntity> findAll() {
 		return userProvider.findAll();
 	}
 	
-	public User save(User user) {
+	public UserEntity save(UserEntity user) {
 		return userProvider.save(user);
 	}
 	
-	public User findById(Long id) {
+	public UserEntity findById(Long id) {
 		return userProvider.findById(id);
 	}
 	
-	public User findByUsername(String username) {
+	public UserEntity findByUsername(String username) {
 		return userProvider.findByUsername(username);
 	}
 	
-	public User findByUsernameAndPassword(String username, String password) {
+	public UserEntity findByUsernameAndPassword(String username, String password) {
 		return userProvider.findByUsernameAndPassword(username, password);
 	}
 	
-	public void delete(User user) {
+	public void delete(UserEntity user) {
 		userProvider.delete(user);
 	}
 }

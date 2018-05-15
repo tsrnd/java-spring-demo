@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tsrnd.javax.suho.training.business.UserManager;
-import com.tsrnd.javax.suho.training.domain.Response;
-import com.tsrnd.javax.suho.training.domain.User;
+import com.tsrnd.javax.suho.training.domain.domain.Response;
+import com.tsrnd.javax.suho.training.domain.entity.UserEntity;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -23,7 +23,7 @@ public class AuthController {
 	public ResponseEntity<Response> signIn(@RequestParam(value = "username", required = true) String username,
 			@RequestParam(value = "password", required = true) String password) {
 		Response response = new Response();
-		User user = userManager.findByUsernameAndPassword(username, password);
+		UserEntity user = userManager.findByUsernameAndPassword(username, password);
 		if (user == null) {
 			response = new Response(HttpStatus.UNAUTHORIZED, "/auth/");
 		} else {

@@ -6,26 +6,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.tsrnd.javax.suho.training.dataaccess.provider.CategoryProvider;
-import com.tsrnd.javax.suho.training.domain.Category;
+import com.tsrnd.javax.suho.training.domain.entity.CategoryEntity;
 
 @Component
 public class CategoryManager {
 	@Autowired
 	CategoryProvider categoryProvider;
 	
-	public List<Category> findAll() {
+	public List<CategoryEntity> findAll() {
 		return categoryProvider.findAll();
 	}
 	
-	public Category save(Category category) {
+	public CategoryEntity save(CategoryEntity category) {
 		return categoryProvider.save(category);
 	}
 	
-	public Category get(Long id) {
+	public CategoryEntity get(Long id) {
 		return categoryProvider.get(id);
 	}
 	
-	public void delete(Category category) {
+	public void delete(CategoryEntity category) {
 		categoryProvider.delete(category);
 	}
 }

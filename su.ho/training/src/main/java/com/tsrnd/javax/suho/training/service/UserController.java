@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tsrnd.javax.suho.training.business.UserManager;
-import com.tsrnd.javax.suho.training.domain.Response;
-import com.tsrnd.javax.suho.training.domain.User;
+import com.tsrnd.javax.suho.training.domain.domain.Response;
+import com.tsrnd.javax.suho.training.domain.entity.UserEntity;
 
 @RestController
 @RequestMapping("/api/users")
@@ -30,7 +30,7 @@ public class UserController {
 	@GetMapping
 	public ResponseEntity<Response> get() {
 		Response response = new Response();
-		List<User> users = userManager.findAll();
+		List<UserEntity> users = userManager.findAll();
 		response.setData(users);
 		return ResponseEntity.status(response.getHttpStatus()).body(response);
 	}
@@ -40,10 +40,10 @@ public class UserController {
 			@RequestParam(value = "password", required = true) String password) {
 		Response response = new Response();
 		if (userManager.findByUsername(username) != null) {
-			response = new Response(HttpStatus.CREATED, "/users/");
+			response = new Response(HttpStatus.FOUND, "/users/");
 		} else {
-			User user = new User(username, password);
-			User userSaved = userManager.save(user);
+			UserEntity user = new UserEntity(username, password);
+			UserEntity userSaved = userManager.save(user);
 			response.setData(userSaved);
 		}
 		return ResponseEntity.status(response.getHttpStatus()).body(response);
@@ -52,7 +52,7 @@ public class UserController {
 	@GetMapping("/{id}")
 	public ResponseEntity<Response> detail(@PathVariable(value = "id") Long id) {
 		Response response = new Response();
-		User user = userManager.findById(id);
+		UserEntity user = userManager.findById(id);
 		if (user != null) {
 			response.setData(user);
 		} else {
@@ -66,7 +66,7 @@ public class UserController {
 			@RequestBody HashMap<String, Object> json) {
 		Response response = new Response();
 		String password = (String) json.get("password");
-		User user = userManager.findById(id);
+		UserEntity user = userManager.findById(id);
 		if (user != null) {
 			if (password != null) {
 				user.setPassword(password);
@@ -82,7 +82,7 @@ public class UserController {
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Response> delete(@PathVariable(value = "id") Long id) {
 		Response response = new Response();
-		User user = userManager.findById(id);
+		UserEntity user = userManager.findById(id);
 		if (user != null) {
 			userManager.delete(user);
 			response.setData(user);

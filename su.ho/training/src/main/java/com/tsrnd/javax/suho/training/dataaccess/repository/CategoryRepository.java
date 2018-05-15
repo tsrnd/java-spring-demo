@@ -3,8 +3,8 @@ package com.tsrnd.javax.suho.training.dataaccess.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.tsrnd.javax.suho.training.domain.Category;
+import com.tsrnd.javax.suho.training.domain.entity.CategoryEntity;
 
 @Repository
-public interface CategoryRepository extends JpaRepository<Category, Long> {
+public interface CategoryRepository extends JpaRepository<CategoryEntity, Long> {
 }
