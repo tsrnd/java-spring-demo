@@ -1,4 +1,4 @@
-package com.thinhung.restful;
+package com.thinhung.restful.common;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

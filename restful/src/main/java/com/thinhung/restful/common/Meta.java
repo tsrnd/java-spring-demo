@@ -1,4 +1,4 @@
-package com.thinhung.restful;
+package com.thinhung.restful.common;
 
 import org.springframework.http.HttpStatus;
 

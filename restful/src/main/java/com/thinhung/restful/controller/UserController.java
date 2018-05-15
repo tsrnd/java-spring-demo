@@ -1,4 +1,4 @@
-package com.thinhung.restful;
+package com.thinhung.restful.controller;
 
 import java.util.List;
 
@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.thinhung.restful.common.Meta;
+import com.thinhung.restful.common.Response;
+import com.thinhung.restful.model.User;
+import com.thinhung.restful.repository.UserRepository;
 
 @RestController
 @RequestMapping(path = "/users")
