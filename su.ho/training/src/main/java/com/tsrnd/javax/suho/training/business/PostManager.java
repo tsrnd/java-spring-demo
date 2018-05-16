@@ -17,4 +17,8 @@ public class PostManager {
 	public List<Post> findAll() {
 		return postQueryManager.findAll();
 	}
+	
+	public Post detail(Long id) {
+		return postQueryManager.detail(id);
+	}
 }

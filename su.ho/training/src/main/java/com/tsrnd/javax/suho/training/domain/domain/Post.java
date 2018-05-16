@@ -1,11 +1,12 @@
 package com.tsrnd.javax.suho.training.domain.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Post {
 	private Long id;
     private String title;
@@ -13,9 +14,9 @@ public class Post {
     @JsonProperty("author")
     private User user;
     @JsonProperty("comments")
-    private List<Comment> comments;
+    private List<Comment> comments = new ArrayList<>();
     @JsonProperty("categories")
-    private List<Category> categories;
+    private List<Category> categories = new ArrayList<>();
     
     public Post() {
     	super();

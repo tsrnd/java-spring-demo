@@ -18,4 +18,9 @@ public class PostQueryProviderImpl implements PostQueryProvider {
 	public List<Post> findAll() {
 		return postQueryRepository.getPosts();
 	}
+	
+	@Override
+	public Post detail(Long id) {
+		return postQueryRepository.detail(id);
+	}
 }

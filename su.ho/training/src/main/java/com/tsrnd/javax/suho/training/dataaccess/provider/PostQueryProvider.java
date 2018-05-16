@@ -9,4 +9,5 @@ import com.tsrnd.javax.suho.training.domain.domain.Post;
 @Component
 public interface PostQueryProvider {
 	public List<Post> findAll();
+	public Post detail(Long id);
 }
