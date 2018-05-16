@@ -24,71 +24,71 @@ import com.tsrnd.javax.suho.training.domain.entity.UserEntity;
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
-	@Autowired
-	UserManager userManager;
+    @Autowired
+    UserManager userManager;
 
-	@GetMapping
-	public ResponseEntity<Response> get() {
-		Response response = new Response();
-		List<UserEntity> users = userManager.findAll();
-		response.setData(users);
-		return ResponseEntity.status(response.getHttpStatus()).body(response);
-	}
+    @GetMapping
+    public ResponseEntity<Response> get() {
+        Response response = new Response();
+        List<UserEntity> users = userManager.findAll();
+        response.setData(users);
+        return ResponseEntity.status(response.getHttpStatus()).body(response);
+    }
 
-	@PostMapping(produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
-	public ResponseEntity<Response> create(@RequestParam(value = "username", required = true) String username,
-			@RequestParam(value = "password", required = true) String password) {
-		Response response = new Response();
-		if (userManager.findByUsername(username) != null) {
-			response = new Response(HttpStatus.FOUND, "/users/");
-		} else {
-			UserEntity user = new UserEntity(username, password);
-			UserEntity userSaved = userManager.save(user);
-			response.setData(userSaved);
-		}
-		return ResponseEntity.status(response.getHttpStatus()).body(response);
-	}
+    @PostMapping(produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
+    public ResponseEntity<Response> create(@RequestParam(value = "username", required = true) String username,
+            @RequestParam(value = "password", required = true) String password) {
+        Response response = new Response();
+        if (userManager.findByUsername(username) != null) {
+            response = new Response(HttpStatus.FOUND, "/users/");
+        } else {
+            UserEntity user = new UserEntity(username, password);
+            UserEntity userSaved = userManager.save(user);
+            response.setData(userSaved);
+        }
+        return ResponseEntity.status(response.getHttpStatus()).body(response);
+    }
 
-	@GetMapping("/{id}")
-	public ResponseEntity<Response> detail(@PathVariable(value = "id") Long id) {
-		Response response = new Response();
-		UserEntity user = userManager.findById(id);
-		if (user != null) {
-			response.setData(user);
-		} else {
-			response = new Response(HttpStatus.NOT_FOUND, "/users/" + id);
-		}
-		return ResponseEntity.status(response.getHttpStatus()).body(response);
-	}
+    @GetMapping("/{id}")
+    public ResponseEntity<Response> detail(@PathVariable(value = "id") Long id) {
+        Response response = new Response();
+        UserEntity user = userManager.findById(id);
+        if (user != null) {
+            response.setData(user);
+        } else {
+            response = new Response(HttpStatus.NOT_FOUND, "/users/" + id);
+        }
+        return ResponseEntity.status(response.getHttpStatus()).body(response);
+    }
 
-	@PutMapping(value = "/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
-	public ResponseEntity<Response> update(@PathVariable(value = "id") Long id,
-			@RequestBody HashMap<String, Object> json) {
-		Response response = new Response();
-		String password = (String) json.get("password");
-		UserEntity user = userManager.findById(id);
-		if (user != null) {
-			if (password != null) {
-				user.setPassword(password);
-				userManager.save(user);
-			}
-			response.setData(user);
-		} else {
-			response = new Response(HttpStatus.NOT_FOUND, "/users/" + id);
-		}
-		return ResponseEntity.status(response.getHttpStatus()).body(response);
-	}
+    @PutMapping(value = "/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<Response> update(@PathVariable(value = "id") Long id,
+            @RequestBody HashMap<String, Object> json) {
+        Response response = new Response();
+        String password = (String) json.get("password");
+        UserEntity user = userManager.findById(id);
+        if (user != null) {
+            if (password != null) {
+                user.setPassword(password);
+                userManager.save(user);
+            }
+            response.setData(user);
+        } else {
+            response = new Response(HttpStatus.NOT_FOUND, "/users/" + id);
+        }
+        return ResponseEntity.status(response.getHttpStatus()).body(response);
+    }
 
-	@DeleteMapping("/{id}")
-	public ResponseEntity<Response> delete(@PathVariable(value = "id") Long id) {
-		Response response = new Response();
-		UserEntity user = userManager.findById(id);
-		if (user != null) {
-			userManager.delete(user);
-			response.setData(user);
-		} else {
-			response = new Response(HttpStatus.NOT_FOUND, "/users/" + id);
-		}
-		return ResponseEntity.status(response.getHttpStatus()).body(response);
-	}
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Response> delete(@PathVariable(value = "id") Long id) {
+        Response response = new Response();
+        UserEntity user = userManager.findById(id);
+        if (user != null) {
+            userManager.delete(user);
+            response.setData(user);
+        } else {
+            response = new Response(HttpStatus.NOT_FOUND, "/users/" + id);
+        }
+        return ResponseEntity.status(response.getHttpStatus()).body(response);
+    }
 }

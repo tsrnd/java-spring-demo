@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.tsrnd.javax.suho.training.domain.entity.UserEntity;
 
 @Repository
-public interface PostCommandRepository extends JpaRepository<UserEntity, Long> {	
+public interface PostCommandRepository extends JpaRepository<UserEntity, Long> {
 }

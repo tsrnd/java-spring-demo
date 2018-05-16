@@ -10,22 +10,22 @@ import com.tsrnd.javax.suho.training.domain.entity.UserEntity;
 
 @Component
 public class UserQueryManager {
-	@Autowired
-	private UserQueryProvider userQueryProvider;
-	
-	public List<UserEntity> findAll() {
-		return userQueryProvider.findAll();
-	}
-	
-	public UserEntity findById(Long id) {
-		return userQueryProvider.findById(id);
-	}
-	
-	public UserEntity findByUsername(String username) {
-		return userQueryProvider.findByUsername(username);
-	}
-	
-	public UserEntity findByUsernameAndPassword(String username, String password) {
-		return userQueryProvider.findByUsernameAndPassword(username, password);
-	}
+    @Autowired
+    private UserQueryProvider userQueryProvider;
+
+    public List<UserEntity> findAll() {
+        return userQueryProvider.findAll();
+    }
+
+    public UserEntity findById(Long id) {
+        return userQueryProvider.findById(id);
+    }
+
+    public UserEntity findByUsername(String username) {
+        return userQueryProvider.findByUsername(username);
+    }
+
+    public UserEntity findByUsernameAndPassword(String username, String password) {
+        return userQueryProvider.findByUsernameAndPassword(username, password);
+    }
 }

@@ -8,14 +8,14 @@ import com.tsrnd.javax.suho.training.domain.entity.CategoryEntity;
 
 @Component
 public class CategoryCommandManager {
-	@Autowired
-	private CategoryCommandProvider categoryCommandProvider;
-	
-	public CategoryEntity save(CategoryEntity category) {
-		return categoryCommandProvider.save(category);
-	}
-	
-	public void delete(CategoryEntity category) {
-		categoryCommandProvider.delete(category);
-	}
+    @Autowired
+    private CategoryCommandProvider categoryCommandProvider;
+
+    public CategoryEntity save(CategoryEntity category) {
+        return categoryCommandProvider.save(category);
+    }
+
+    public void delete(CategoryEntity category) {
+        categoryCommandProvider.delete(category);
+    }
 }

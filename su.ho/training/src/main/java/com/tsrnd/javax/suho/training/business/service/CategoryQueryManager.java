@@ -10,13 +10,14 @@ import com.tsrnd.javax.suho.training.domain.entity.CategoryEntity;
 
 @Component
 public class CategoryQueryManager {
-	@Autowired
-	private CategoryQueryProvider categoryQueryProvider;
-	
-	public List<CategoryEntity> findAll() {
-		return categoryQueryProvider.findAll();
-	}
-	public CategoryEntity get(Long id) {
-		return categoryQueryProvider.get(id);
-	}
+    @Autowired
+    private CategoryQueryProvider categoryQueryProvider;
+
+    public List<CategoryEntity> findAll() {
+        return categoryQueryProvider.findAll();
+    }
+
+    public CategoryEntity get(Long id) {
+        return categoryQueryProvider.get(id);
+    }
 }

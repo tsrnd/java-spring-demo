@@ -24,66 +24,66 @@ import com.tsrnd.javax.suho.training.domain.entity.CategoryEntity;
 @RestController
 @RequestMapping("/api/categories")
 public class CategoryController {
-	@Autowired
-	CategoryManager categoryManager;
-	
-	@GetMapping
-	public ResponseEntity<Response> get() {
-		Response response = new Response();
-		List<CategoryEntity> categories = categoryManager.findAll();
-		response.setData(categories);
-		return ResponseEntity.status(response.getHttpStatus()).body(response);
-	}
-	
-	@PostMapping
-	public ResponseEntity<Response> create(@RequestParam(value = "title", required = true) String title) {
-		Response response = new Response();
-		CategoryEntity category = new CategoryEntity(title);
-		category = categoryManager.save(category);
-		response.setData(category);
-		return ResponseEntity.status(response.getHttpStatus()).body(response);
-	}
-	
-	@GetMapping("/{id}")
-	public ResponseEntity<Response> detail(@PathVariable(value = "id") Long id) {
-		Response response = new Response();
-		CategoryEntity category = categoryManager.get(id);
-		if (category != null) {
-			response.setData(category);
-		} else {
-			response = new Response(HttpStatus.NOT_FOUND, "/users/" + id);
-		}
-		return ResponseEntity.status(response.getHttpStatus()).body(response);
-	}
-	
-	@PutMapping(value = "/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
-	public ResponseEntity<Response> update(@PathVariable(value = "id") Long id,
-			@RequestBody HashMap<String, Object> json) {
-		Response response = new Response();
-		String title = (String) json.get("title");
-		CategoryEntity category = categoryManager.get(id);
-		if (category != null) {
-			if (title != null) {
-				category.setTitle(title);
-				categoryManager.save(category);
-			}
-			response.setData(category);
-		} else {
-			response = new Response(HttpStatus.NOT_FOUND, "/categories/" + id);
-		}
-		return ResponseEntity.status(response.getHttpStatus()).body(response);
-	}
+    @Autowired
+    CategoryManager categoryManager;
 
-	@DeleteMapping("/{id}")
-	public ResponseEntity<Response> delete(@PathVariable(value = "id") Long id) {
-		Response response = new Response();
-		CategoryEntity category = categoryManager.get(id);
-		if (category != null) {
-			categoryManager.delete(category);
-			response.setData(category);
-		} else {
-			response = new Response(HttpStatus.NOT_FOUND, "/categories/" + id);
-		}
-		return ResponseEntity.status(response.getHttpStatus()).body(response);
-	}
+    @GetMapping
+    public ResponseEntity<Response> get() {
+        Response response = new Response();
+        List<CategoryEntity> categories = categoryManager.findAll();
+        response.setData(categories);
+        return ResponseEntity.status(response.getHttpStatus()).body(response);
+    }
+
+    @PostMapping
+    public ResponseEntity<Response> create(@RequestParam(value = "title", required = true) String title) {
+        Response response = new Response();
+        CategoryEntity category = new CategoryEntity(title);
+        category = categoryManager.save(category);
+        response.setData(category);
+        return ResponseEntity.status(response.getHttpStatus()).body(response);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Response> detail(@PathVariable(value = "id") Long id) {
+        Response response = new Response();
+        CategoryEntity category = categoryManager.get(id);
+        if (category != null) {
+            response.setData(category);
+        } else {
+            response = new Response(HttpStatus.NOT_FOUND, "/users/" + id);
+        }
+        return ResponseEntity.status(response.getHttpStatus()).body(response);
+    }
+
+    @PutMapping(value = "/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<Response> update(@PathVariable(value = "id") Long id,
+            @RequestBody HashMap<String, Object> json) {
+        Response response = new Response();
+        String title = (String) json.get("title");
+        CategoryEntity category = categoryManager.get(id);
+        if (category != null) {
+            if (title != null) {
+                category.setTitle(title);
+                categoryManager.save(category);
+            }
+            response.setData(category);
+        } else {
+            response = new Response(HttpStatus.NOT_FOUND, "/categories/" + id);
+        }
+        return ResponseEntity.status(response.getHttpStatus()).body(response);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Response> delete(@PathVariable(value = "id") Long id) {
+        Response response = new Response();
+        CategoryEntity category = categoryManager.get(id);
+        if (category != null) {
+            categoryManager.delete(category);
+            response.setData(category);
+        } else {
+            response = new Response(HttpStatus.NOT_FOUND, "/categories/" + id);
+        }
+        return ResponseEntity.status(response.getHttpStatus()).body(response);
+    }
 }

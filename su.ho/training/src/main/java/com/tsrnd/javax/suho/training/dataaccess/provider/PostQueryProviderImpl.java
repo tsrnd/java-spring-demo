@@ -11,16 +11,16 @@ import com.tsrnd.javax.suho.training.domain.domain.Post;
 @Component
 public class PostQueryProviderImpl implements PostQueryProvider {
 
-	@Autowired
-	private PostQueryRepository postQueryRepository;
+    @Autowired
+    private PostQueryRepository postQueryRepository;
 
-	@Override
-	public List<Post> findAll() {
-		return postQueryRepository.getPosts();
-	}
-	
-	@Override
-	public Post detail(Long id) {
-		return postQueryRepository.detail(id);
-	}
+    @Override
+    public List<Post> findAll() {
+        return postQueryRepository.getPosts();
+    }
+
+    @Override
+    public Post detail(Long id) {
+        return postQueryRepository.detail(id);
+    }
 }

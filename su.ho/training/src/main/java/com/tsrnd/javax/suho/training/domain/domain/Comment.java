@@ -7,64 +7,64 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Comment {
-	private Long id;
-	private User user;
-	private Post post;
-	private String content;
-	@JsonProperty("created_at")
-	private Date createAt;
-	
-	public Comment() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    private Long id;
+    private User user;
+    private Post post;
+    private String content;
+    @JsonProperty("created_at")
+    private Date createAt;
 
-	public Comment(Long id, User user, Post post, String content, Date createAt) {
-		super();
-		this.id = id;
-		this.user = user;
-		this.post = post;
-		this.content = content;
-		this.createAt = createAt;
-	}
+    public Comment() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public Comment(Long id, User user, Post post, String content, Date createAt) {
+        super();
+        this.id = id;
+        this.user = user;
+        this.post = post;
+        this.content = content;
+        this.createAt = createAt;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public User getUser() {
-		return user;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+    public User getUser() {
+        return user;
+    }
 
-	public Post getPost() {
-		return post;
-	}
+    public void setUser(User user) {
+        this.user = user;
+    }
 
-	public void setPost(Post post) {
-		this.post = post;
-	}
+    public Post getPost() {
+        return post;
+    }
 
-	public String getContent() {
-		return content;
-	}
+    public void setPost(Post post) {
+        this.post = post;
+    }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    public String getContent() {
+        return content;
+    }
 
-	public Date getCreateAt() {
-		return createAt;
-	}
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-	public void setCreateAt(Date createAt) {
-		this.createAt = createAt;
-	}
+    public Date getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
+    }
 }

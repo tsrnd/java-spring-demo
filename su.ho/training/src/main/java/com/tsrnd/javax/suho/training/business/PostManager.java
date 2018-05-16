@@ -11,14 +11,14 @@ import com.tsrnd.javax.suho.training.domain.domain.Post;
 @Component
 public class PostManager {
 
-	@Autowired
-	private PostQueryManager postQueryManager;
-	
-	public List<Post> findAll() {
-		return postQueryManager.findAll();
-	}
-	
-	public Post detail(Long id) {
-		return postQueryManager.detail(id);
-	}
+    @Autowired
+    private PostQueryManager postQueryManager;
+
+    public List<Post> findAll() {
+        return postQueryManager.findAll();
+    }
+
+    public Post detail(Long id) {
+        return postQueryManager.detail(id);
+    }
 }

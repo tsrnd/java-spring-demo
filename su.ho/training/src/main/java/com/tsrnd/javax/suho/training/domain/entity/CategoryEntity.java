@@ -10,40 +10,50 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @Entity
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CategoryEntity {
-	@Id
-	@GeneratedValue
-	private Long id;
-	@NotNull
-	private String title;
-	
-	public CategoryEntity() {
-		super();
-	}
-	
-	public CategoryEntity(Long id, @NotNull String title) {
-		super();
-		this.id = id;
-		this.title = title;
-	}
-	
-	public CategoryEntity(@NotNull String title) {
-		super();
-		this.title = title;
-	}
+    @Id
+    @GeneratedValue
+    private Long id;
+    @NotNull
+    private String title;
+    @NotNull
+    private Boolean isDelete = false;
 
-	public Long getId() {
-		return id;
-	}
+    public CategoryEntity() {
+        super();
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public CategoryEntity(Long id, @NotNull String title) {
+        super();
+        this.id = id;
+        this.title = title;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public CategoryEntity(@NotNull String title) {
+        super();
+        this.title = title;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Boolean getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(Boolean isDelete) {
+        this.isDelete = isDelete;
+    }
 }

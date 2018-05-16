@@ -11,32 +11,32 @@ import com.tsrnd.javax.suho.training.domain.entity.UserEntity;
 
 @Component
 public class UserQueryProviderImpl implements UserQueryProvider {
-	
-	@Autowired
-	private UserQueryRepository userQueryRepository;
 
-	@Override
-	public List<UserEntity> findAll() {
-		return userQueryRepository.findAll();
-	}
+    @Autowired
+    private UserQueryRepository userQueryRepository;
 
-	@Override
-	public UserEntity findById(Long id) {
-		Optional<UserEntity> user = userQueryRepository.findById(id); 
-		if (user.isPresent()) {
-			return user.get();
-		} else {
-			return null;
-		}
-	}
+    @Override
+    public List<UserEntity> findAll() {
+        return userQueryRepository.findAll();
+    }
 
-	@Override
-	public UserEntity findByUsername(String username) {
-		return userQueryRepository.findByUsername(username);
-	}
+    @Override
+    public UserEntity findById(Long id) {
+        Optional<UserEntity> user = userQueryRepository.findById(id);
+        if (user.isPresent()) {
+            return user.get();
+        } else {
+            return null;
+        }
+    }
 
-	@Override
-	public UserEntity findByUsernameAndPassword(String username, String password) {
-		return userQueryRepository.findByUsernameAndPassword(username, password);
-	}
+    @Override
+    public UserEntity findByUsername(String username) {
+        return userQueryRepository.findByUsername(username);
+    }
+
+    @Override
+    public UserEntity findByUsernameAndPassword(String username, String password) {
+        return userQueryRepository.findByUsernameAndPassword(username, password);
+    }
 }

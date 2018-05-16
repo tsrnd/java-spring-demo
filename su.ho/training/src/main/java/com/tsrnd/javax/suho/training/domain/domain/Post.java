@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Post {
-	private Long id;
+    private Long id;
     private String title;
     private String content;
     @JsonProperty("author")
@@ -17,66 +17,66 @@ public class Post {
     private List<Comment> comments = new ArrayList<>();
     @JsonProperty("categories")
     private List<Category> categories = new ArrayList<>();
-    
+
     public Post() {
-    	super();
+        super();
     }
 
-	public Post(Long id, String title, String content, User user, List<Comment> comments, List<Category> categories) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.content = content;
-		this.user = user;
-		this.comments = comments;
-		this.categories = categories;
-	}
+    public Post(Long id, String title, String content, User user, List<Comment> comments, List<Category> categories) {
+        super();
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.user = user;
+        this.comments = comments;
+        this.categories = categories;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public String getContent() {
-		return content;
-	}
+    public String getContent() {
+        return content;
+    }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-	public User getUser() {
-		return user;
-	}
+    public User getUser() {
+        return user;
+    }
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+    public void setUser(User user) {
+        this.user = user;
+    }
 
-	public List<Comment> getComments() {
-		return comments;
-	}
+    public List<Comment> getComments() {
+        return comments;
+    }
 
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
 
-	public List<Category> getCategories() {
-		return categories;
-	}
+    public List<Category> getCategories() {
+        return categories;
+    }
 
-	public void setCategories(List<Category> categories) {
-		this.categories = categories;
-	}
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
 }

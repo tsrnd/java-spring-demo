@@ -12,58 +12,68 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @Entity
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserEntity {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	@NotNull
-	private String username;
-	@JsonIgnore
-	@NotNull
-	private String password;
-	
-	public UserEntity() {
-		super();
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @NotNull
+    private String username;
+    @JsonIgnore
+    @NotNull
+    private String password;
+    @NotNull
+    private Boolean isDelete = false;
 
-	public UserEntity(Long id, String username, String password) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.password = password;
-	}
+    public UserEntity() {
+        super();
+    }
 
-	public UserEntity(String username, String password) {
-		super();
-		this.username = username;
-		this.password = password;
-	}
-	
-	public UserEntity(String password) {
-		super();
-		this.password = password;
-	}
+    public UserEntity(Long id, String username, String password) {
+        super();
+        this.id = id;
+        this.username = username;
+        this.password = password;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public UserEntity(String username, String password) {
+        super();
+        this.username = username;
+        this.password = password;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public UserEntity(String password) {
+        super();
+        this.password = password;
+    }
 
-	public String getUsername() {
-		return username;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Boolean getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(Boolean isDelete) {
+        this.isDelete = isDelete;
+    }
 }

@@ -10,57 +10,67 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @Entity
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PostEntity {
-	@Id
-	@GeneratedValue
-	private Long id;
-	@NotNull
-	private String title;
-	@NotNull
-	private String content;
-	@NotNull
-	private Long userId;
-	
-	public PostEntity() {
-		super();
-	}
+    @Id
+    @GeneratedValue
+    private Long id;
+    @NotNull
+    private String title;
+    @NotNull
+    private String content;
+    @NotNull
+    private Long userId;
+    @NotNull
+    private Boolean isDelete = false;
 
-	public PostEntity(Long id, @NotNull String title, @NotNull String content, @NotNull Long userId) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.content = content;
-		this.userId = userId;
-	}
+    public PostEntity() {
+        super();
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public PostEntity(Long id, @NotNull String title, @NotNull String content, @NotNull Long userId) {
+        super();
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.userId = userId;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public String getContent() {
-		return content;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    public String getContent() {
+        return content;
+    }
 
-	public Long getUserId() {
-		return userId;
-	}
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Boolean getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(Boolean isDelete) {
+        this.isDelete = isDelete;
+    }
 }

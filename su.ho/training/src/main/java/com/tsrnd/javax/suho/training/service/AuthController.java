@@ -16,19 +16,19 @@ import com.tsrnd.javax.suho.training.domain.entity.UserEntity;
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
-	@Autowired
-	UserManager userManager;
+    @Autowired
+    UserManager userManager;
 
-	@PostMapping(produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
-	public ResponseEntity<Response> signIn(@RequestParam(value = "username", required = true) String username,
-			@RequestParam(value = "password", required = true) String password) {
-		Response response = new Response();
-		UserEntity user = userManager.findByUsernameAndPassword(username, password);
-		if (user == null) {
-			response = new Response(HttpStatus.UNAUTHORIZED, "/auth/");
-		} else {
-			response.setData(user);
-		}
-		return ResponseEntity.status(response.getHttpStatus()).body(response);
-	}
+    @PostMapping(produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
+    public ResponseEntity<Response> signIn(@RequestParam(value = "username", required = true) String username,
+            @RequestParam(value = "password", required = true) String password) {
+        Response response = new Response();
+        UserEntity user = userManager.findByUsernameAndPassword(username, password);
+        if (user == null) {
+            response = new Response(HttpStatus.UNAUTHORIZED, "/auth/");
+        } else {
+            response.setData(user);
+        }
+        return ResponseEntity.status(response.getHttpStatus()).body(response);
+    }
 }

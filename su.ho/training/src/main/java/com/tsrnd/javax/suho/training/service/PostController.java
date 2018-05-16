@@ -16,23 +16,23 @@ import com.tsrnd.javax.suho.training.domain.domain.Response;
 @RestController
 @RequestMapping("/api/posts")
 public class PostController {
-	
-	@Autowired
-	PostManager manager;
-	
-	@GetMapping
-	public ResponseEntity<Response> get() {
-		Response response = new Response();
-		List<Post> posts = manager.findAll();
-		response.setData(posts);
-		return ResponseEntity.status(response.getHttpStatus()).body(response);
-	}
 
-	@GetMapping("/{id}")
-	public ResponseEntity<Response> detail(@PathVariable(name = "id") Long id) {
-		Response response = new Response();
-		Post post = manager.detail(id);
-		response.setData(post);
-		return ResponseEntity.status(response.getHttpStatus()).body(response);
-	}
+    @Autowired
+    PostManager manager;
+
+    @GetMapping
+    public ResponseEntity<Response> get() {
+        Response response = new Response();
+        List<Post> posts = manager.findAll();
+        response.setData(posts);
+        return ResponseEntity.status(response.getHttpStatus()).body(response);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Response> detail(@PathVariable(name = "id") Long id) {
+        Response response = new Response();
+        Post post = manager.detail(id);
+        response.setData(post);
+        return ResponseEntity.status(response.getHttpStatus()).body(response);
+    }
 }
