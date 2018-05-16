@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import main.dataaccess.provider.UserQueryProvider;
-import main.domain.User;
+import main.domain.entity.User;
 
 @Component
 public class UserQueryManager {

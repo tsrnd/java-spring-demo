@@ -2,7 +2,7 @@ package main.dataaccess.provider;
 
 import java.util.List;
 
-import main.domain.User;
+import main.domain.entity.User;
 
 public interface UserQueryProvider {
 	

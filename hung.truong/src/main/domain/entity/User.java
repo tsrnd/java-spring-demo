@@ -1,4 +1,4 @@
-package main.domain;
+package main.domain.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,8 +28,9 @@ public class User {
 		super();
 	}
 
-	public User(String username, String fulname, String address) {
+	public User(Long userId, String username, String fulname, String address) {
 		super();
+		this.userId = userId;
 		this.username = username;
 		this.fullname = fulname;
 		this.address = address;

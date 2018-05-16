@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import main.business.UserManager;
 import main.business.UserSubscriberManager;
 import main.domain.ResponseData;
-import main.domain.User;
+import main.domain.entity.User;
 
 @RestController
 @RequestMapping("/api/v1/user")
@@ -38,7 +38,7 @@ public class UserController {
 	public ResponseEntity<ResponseData> addUser(@RequestParam(name = "username", required = true) String username,
 			@RequestParam(name = "fullname", required = true) String fullname,
 			@RequestParam(name = "address", required = false, defaultValue = "Address") String address) {
-		User user = new User(username, fullname, address);
+		User user = new User(null, username, fullname, address);
 		ResponseData result = userManager.addUser(user);
 		return ResponseEntity.status(result.getStatus()).body(result);
 	}

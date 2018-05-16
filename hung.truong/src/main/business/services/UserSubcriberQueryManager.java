@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import main.dataaccess.provider.UserSubscriberQueryProvider;
-import main.domain.UserSubscriber;
+import main.domain.entity.UserSubscriber;
 
 @Component
 public class UserSubcriberQueryManager {

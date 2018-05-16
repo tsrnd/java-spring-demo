@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 import main.dataaccess.repository.UserRepository;
 import main.domain.ExecutionResult;
-import main.domain.User;
+import main.domain.entity.User;
 
 @Component
 public class UserCommandProviderImpl implements UserCommandProvider {

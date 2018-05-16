@@ -1,7 +1,7 @@
 package main.dataaccess.provider;
 
 import main.domain.ExecutionResult;
-import main.domain.User;
+import main.domain.entity.User;
 
 public interface UserCommandProvider {
 

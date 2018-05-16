@@ -1,4 +1,4 @@
-package main.domain;
+package main.domain.entity;
 
 import java.sql.Date;
 

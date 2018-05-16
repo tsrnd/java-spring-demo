@@ -10,8 +10,8 @@ import main.business.services.UserCommandManager;
 import main.business.services.UserQueryManager;
 import main.domain.ExecutionResult;
 import main.domain.ExecutionResult.Status;
+import main.domain.entity.User;
 import main.domain.ResponseData;
-import main.domain.User;
 
 @Component
 public class UserManager {

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import main.dataaccess.repository.UserRepository;
 import main.dataaccess.repository.UserSubscriberRepository;
-import main.domain.UserSubscriber;
+import main.domain.entity.UserSubscriber;
 
 @Component
 public class UserSubscriberQueryProviderImpl implements UserSubscriberQueryProvider {

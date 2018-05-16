@@ -2,7 +2,7 @@ package main.dataaccess.provider;
 
 import java.util.List;
 
-import main.domain.UserSubscriber;
+import main.domain.entity.UserSubscriber;
 
 public interface UserSubscriberQueryProvider {
 
