@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 import vn.dl.business.service.UserCommandManager;
 import vn.dl.business.service.UserQueryManager;
-import vn.dl.dataaccess.provider.UserCommandProvider;
 import vn.dl.domain.User;
 
 @Component
@@ -26,8 +25,4 @@ public class UserManager {
 	public Optional<User> getUserById(long id) {
 		return userQueryManager.getUserById(id);
 	}
-	
-//	public User saveUser(User user) {
-//		return userCommandManager.saveUser(user);
-//	}
 }

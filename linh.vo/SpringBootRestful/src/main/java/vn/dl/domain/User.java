@@ -1,45 +1,31 @@
 package vn.dl.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-@Entity
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	@NotNull
+	private String id;
 	private String username;
 	private String address;
 
-	public User( ) {
+	public User() {
 		super();
 	}
 
-	public User(Long id, @NotNull String username, String address) {
+	public User(String id, String username, String address) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.address = address;
 	}
 
-	public User(@NotNull String username, String address) {
-		super();
-		this.username = username;
-		this.address = address;
-	}
-	
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -58,5 +44,4 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
 }

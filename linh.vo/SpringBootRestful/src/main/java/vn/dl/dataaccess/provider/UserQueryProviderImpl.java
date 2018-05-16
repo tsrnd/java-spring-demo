@@ -11,17 +11,19 @@ import vn.dl.domain.User;
 
 @Component
 public class UserQueryProviderImpl implements UserQueryProvider {
+	
 	@Autowired
 	private UserQueryRepository userQueryRepository;
 	
 	@Override
 	public List<User> findAll() {
-		return userQueryRepository.findAll();
+		List<User> users = userQueryRepository.getUsers();
+		return users;
 	}
 
 	@Override
 	public Optional<User> getUserById(long id) {
-		return userQueryRepository.findById(id);
+		return null;
 	}
 
 	@Override
