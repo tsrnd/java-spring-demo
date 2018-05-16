@@ -17,26 +17,25 @@ import vn.dl.domain.User;
 @RestController
 @RequestMapping("/rest/users")
 public class UserController {
-	
 	@Autowired
 	UserManager userManager;
 	
 	@GetMapping
 	public ResponseEntity<Response> findAll() {
 		Response res = new Response();
-		List<User> users = userManager.findAll();
+		List<User> users = userManager.getAllUser();
 		res.setData(users);
 		return ResponseEntity.ok(res);
 	}
 	
-	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public ResponseEntity<Response> createUser(@RequestBody User user) {
-		Response res = new Response();
-		if (userManager.findByUsername(user.getUsername()) != null) {
-			res.setMessage("User da ton tai!");
-		} else {
-			res.setData(userManager.saveUser(user));
-		}
-		return ResponseEntity.ok(res);
-	}
+//	@RequestMapping(value = "/create", method = RequestMethod.POST)
+//	public ResponseEntity<Response> createUser(@RequestBody User user) {
+//		Response res = new Response();
+//		if (userManager.findByUsername(user.getUsername()) != null) {
+//			res.setMessage("User da ton tai!");
+//		} else {
+//			res.setData(userManager.saveUser(user));
+//		}
+//		return ResponseEntity.ok(res);
+//	}
 }

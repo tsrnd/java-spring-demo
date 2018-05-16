@@ -6,28 +6,28 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import vn.dl.dataaccess.provider.UserProvider;
+import vn.dl.business.service.UserCommandManager;
+import vn.dl.business.service.UserQueryManager;
+import vn.dl.dataaccess.provider.UserCommandProvider;
 import vn.dl.domain.User;
 
 @Component
 public class UserManager {
 	@Autowired
-	UserProvider userProvider;
+	UserQueryManager userQueryManager;
 	
-	public List<User> findAll() {
-		return userProvider.findAll();
-	}
+	@Autowired
+	UserCommandManager userCommandManager;
 	
-	public User saveUser(User user) {
-		return userProvider.saveUser(user);
-	}
-	
-	public User findByUsername(String username) {
-		return userProvider.findByUsername(username);
-	}
-	
-	public Optional<User> getUserById(long id) {
-		return userProvider.getUserById(id);
+	public List<User> getAllUser() {
+		return userQueryManager.getAllUser();
 	}
 
+	public Optional<User> getUserById(long id) {
+		return userQueryManager.getUserById(id);
+	}
+	
+//	public User saveUser(User user) {
+//		return userCommandManager.saveUser(user);
+//	}
 }
