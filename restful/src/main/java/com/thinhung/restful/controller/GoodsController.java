@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.thinhung.restful.model.Goods;
+import com.thinhung.restful.model.domain.Goods;
 import com.thinhung.restful.repository.GoodsRepository;
 
 @RestController

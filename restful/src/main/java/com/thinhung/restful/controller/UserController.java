@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.thinhung.restful.common.Data;
 import com.thinhung.restful.common.Meta;
 import com.thinhung.restful.common.Response;
-import com.thinhung.restful.model.User;
+import com.thinhung.restful.model.domain.User;
 import com.thinhung.restful.repository.UserRepository;
 
 @RestController
@@ -30,7 +31,9 @@ public class UserController  {
 		userRepository.save(user);
 		
 		Meta meta = new Meta(HttpStatus.OK, "");
-		Response<String> response = new Response<String>(meta, "Added user");
+		Data<String> data = new Data<>();
+		data.setValue("Added user");
+		Response<String> response = new Response<>(meta, data);
 		return ResponseEntity.ok(response);
 	}
 	

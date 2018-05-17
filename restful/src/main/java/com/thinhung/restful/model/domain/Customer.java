@@ -1,4 +1,4 @@
-package com.thinhung.restful.model;
+package com.thinhung.restful.model.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,4 +1,4 @@
-package com.thinhung.restful.model;
+package com.thinhung.restful.model.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,26 +6,43 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(value = JsonInclude.Include.NON_NULL)
 @Entity
-@Table(name = "Materials")
-public class Material {
+@Table(name = "Users")
+public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private int id;
 	private String name;
-	public Long getId() {
+	private String email;
+
+	public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
+
+	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Material() {
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public User() {
 		super();
 	}
 }
