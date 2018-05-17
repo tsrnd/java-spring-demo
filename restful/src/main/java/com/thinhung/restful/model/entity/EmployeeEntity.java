@@ -13,7 +13,7 @@ import com.thinhung.restful.model.domain.Employee;
 
 @Entity
 @Table(name = "Employees")
-public class EmployeeEntity {
+public class EmployeeEntity implements BaseEntityInterface<Employee> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

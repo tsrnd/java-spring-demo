@@ -3,6 +3,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.thinhung.restful.model.entity.EmployeeEntity;
 
-public interface EmployeeRepository extends JpaRepository<EmployeeEntity, Long>{
+public interface EmployeeRepository extends JpaRepository<EmployeeEntity, Long>, EmployeeRepositoryExtensions{
 
 }

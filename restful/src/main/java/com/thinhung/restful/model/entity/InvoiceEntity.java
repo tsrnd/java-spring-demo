@@ -13,7 +13,7 @@ import com.thinhung.restful.model.domain.Invoice;
 
 @Entity
 @Table(name = "invoices")
-public class InvoiceEntity {
+public class InvoiceEntity implements BaseEntityInterface<Invoice> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
