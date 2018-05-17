@@ -28,14 +28,14 @@ public class UserController {
 		return ResponseEntity.ok(res);
 	}
 	
-//	@RequestMapping(value = "/create", method = RequestMethod.POST)
-//	public ResponseEntity<Response> createUser(@RequestBody User user) {
-//		Response res = new Response();
-//		if (userManager.findByUsername(user.getUsername()) != null) {
-//			res.setMessage("User da ton tai!");
-//		} else {
-//			res.setData(userManager.saveUser(user));
-//		}
-//		return ResponseEntity.ok(res);
-//	}
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	public ResponseEntity<Response> createUser(@RequestBody User user) {
+		Response res = new Response();
+		if (userManager.findByUsername(user.getUsername()) == null) {
+			// TODO: save user
+		} else {
+			res.setMessage("user da ton tai!");
+		}
+		return ResponseEntity.ok(res);
+	}
 }

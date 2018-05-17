@@ -1,5 +1,7 @@
 package vn.dl.dataaccess.provider;
 
-public interface UserCommandProvider {
+import vn.dl.domain.User;
 
+public interface UserCommandProvider {
+	public User saveUser(User user);
 }

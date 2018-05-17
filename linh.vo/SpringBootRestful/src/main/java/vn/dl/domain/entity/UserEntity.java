@@ -8,9 +8,14 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import vn.dl.domain.User;
+import vn.dl.util.StringUtils;
+
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "USER_ENTITY")
-public class UserEntity {
+public class UserEntity extends BaseEntity {
+
 	@Id
 	@Column(name = "ID")
 	@SequenceGenerator(name = "USER_SEQ", sequenceName = "USER_SEQ", allocationSize = 1)
@@ -56,5 +61,10 @@ public class UserEntity {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	@Override
+	public User toDomain() {
+		return new User(StringUtils.convertObjectToString(id), StringUtils.convertObjectToString(username), StringUtils.convertObjectToString(address));
 	}
 }

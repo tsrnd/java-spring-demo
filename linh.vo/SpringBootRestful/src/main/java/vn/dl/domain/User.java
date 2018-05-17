@@ -3,9 +3,12 @@ package vn.dl.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import vn.dl.domain.entity.UserEntity;
+import vn.dl.util.StringUtils;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class User {
+public class User extends BaseDomain {
 	private String id;
 	private String username;
 	private String address;
@@ -43,5 +46,15 @@ public class User {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	
+	public UserEntity toEntity() {
+		try {
+			UserEntity userEntity = new UserEntity(!StringUtils.isValidString(id) ? null : Long.valueOf(id), username, address);
+			return userEntity;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

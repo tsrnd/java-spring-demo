@@ -31,8 +31,6 @@ public class Response {
 		this.error = error;
 		this.message = message;
 	}
-
-	// Getters and Setters
 	
 	public int getStatus() {
 		return status;
@@ -64,6 +62,4 @@ public class Response {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
-	
 }

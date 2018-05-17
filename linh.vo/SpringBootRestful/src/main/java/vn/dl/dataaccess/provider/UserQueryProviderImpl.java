@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import vn.dl.dataaccess.repository.UserQueryRepository;
 import vn.dl.domain.User;
+import vn.dl.domain.entity.UserEntity;
 
 @Component
 public class UserQueryProviderImpl implements UserQueryProvider {
@@ -23,18 +24,19 @@ public class UserQueryProviderImpl implements UserQueryProvider {
 
 	@Override
 	public Optional<User> getUserById(long id) {
+		// TODO
 		return null;
 	}
 
 	@Override
 	public String getUserRank(long id) {
-		// TODO Auto-generated method stub
+		// TODO
 		return null;
 	}
-
+	
 	@Override
-	public User getUsername(String username) {
-		// TODO Auto-generated method stub
-		return null;
+	public UserEntity findByUsername(String username) {
+		UserEntity userEntity = userQueryRepository.findByUsername(username);
+		return userEntity;
 	}
 }

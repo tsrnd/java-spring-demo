@@ -1,13 +1,13 @@
 package vn.dl.business.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import vn.dl.dataaccess.provider.UserQueryProvider;
 import vn.dl.domain.User;
+import vn.dl.domain.entity.UserEntity;
 
 @Component
 public class UserQueryManager {
@@ -19,13 +19,8 @@ public class UserQueryManager {
 		return users;
 	}
 	
-	public Optional<User> getUserById(long id) {
-		Optional<User> user = userQueryProvider.getUserById(id);
-		return user;
-	}
-	
 	public User findByUsername(String username) {
-		User user = userQueryProvider.getUsername(username);
-		return user;
+		UserEntity userEntity = userQueryProvider.findByUsername(username);
+		return userEntity == null ? null : userEntity.toDomain();
 	}
 }

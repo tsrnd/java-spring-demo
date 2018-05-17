@@ -1,7 +1,6 @@
 package vn.dl.business;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,8 +20,13 @@ public class UserManager {
 	public List<User> getAllUser() {
 		return userQueryManager.getAllUser();
 	}
-
-	public Optional<User> getUserById(long id) {
-		return userQueryManager.getUserById(id);
+	
+	public User findByUsername(String username) {
+		return userQueryManager.findByUsername(username);
+	}
+	
+	public User saveUser(User user) {
+		// TODO
+		return null;
 	}
 }

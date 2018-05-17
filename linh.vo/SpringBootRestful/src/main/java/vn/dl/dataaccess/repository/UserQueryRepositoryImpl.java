@@ -34,7 +34,6 @@ public class UserQueryRepositoryImpl implements UserQueryRepositoryExtension {
 			user.setUsername(row.get(1));
 			user.setAddress(row.get(2));
 			users.add(user);
-			System.out.println(user);
 		}
 		return users;
 	}
