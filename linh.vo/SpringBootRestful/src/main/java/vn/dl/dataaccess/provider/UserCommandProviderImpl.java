@@ -18,12 +18,10 @@ public class UserCommandProviderImpl implements UserCommandProvider {
 
 	@Override
 	public ExecutionResult insert(UserEntity entity) {
-		// TODO Auto-generated method stub
 		ExecutionResult result = new ExecutionResult();
 		try {
 			userCommandRepository.save(entity);
 		} catch (Exception e) {
-			// write log here
 			logger.error(e.getMessage());
 			result.setError(e);
 			throw e;
