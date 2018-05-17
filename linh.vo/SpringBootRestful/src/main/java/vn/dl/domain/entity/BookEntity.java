@@ -24,7 +24,7 @@ public class BookEntity extends BaseEntity {
 	private Long id;
 
 	@Column(name = "USER_ID")
-	private Long userID;
+	private Long userId;
 	
 	@Column(name = "AUTHOR")
 	private String author;
@@ -36,10 +36,10 @@ public class BookEntity extends BaseEntity {
 		super();
 	}
 	
-	public BookEntity(Long id, Long userID, String author, String name) {
+	public BookEntity(Long id, Long userId, String author, String name) {
 		super();
 		this.id = id;
-		this.userID = userID;
+		this.userId = userId;
 		this.author = author;
 		this.name = name;
 	}
@@ -52,12 +52,12 @@ public class BookEntity extends BaseEntity {
 		this.id = id;
 	}
 
-	public Long getUserID() {
-		return userID;
+	public Long getUserId() {
+		return userId;
 	}
 
-	public void setUserID(Long userID) {
-		this.userID = userID;
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 
 	public String getAuthor() {
@@ -78,7 +78,7 @@ public class BookEntity extends BaseEntity {
 
 	@Override
 	protected BaseDomain toDomain() {
-		return new Book(StringUtils.convertObjectToString(id), StringUtils.convertObjectToString(userID), StringUtils.convertObjectToString(author), StringUtils.convertObjectToString(name));
+		return new Book(StringUtils.convertObjectToString(id), StringUtils.convertObjectToString(userId), StringUtils.convertObjectToString(author), StringUtils.convertObjectToString(name));
 	}
 	
 }
