@@ -1,7 +1,7 @@
 package vn.dl.dataaccess.provider;
 
-import vn.dl.domain.User;
+import vn.dl.domain.entity.UserEntity;
 
-public interface UserCommandProvider {
-	public User saveUser(User user);
+public interface UserCommandProvider extends BaseCommandProvider<UserEntity> {
+
 }

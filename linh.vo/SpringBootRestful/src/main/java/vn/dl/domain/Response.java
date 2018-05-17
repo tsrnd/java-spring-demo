@@ -1,35 +1,35 @@
 package vn.dl.domain;
 
+import java.io.Serializable;
+
 import org.springframework.http.HttpStatus;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonIgnoreProperties(value = { "httpStatus" })
-public class Response {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Response implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3206659789907029006L;
 	private int status;
 	private HttpStatus httpStatus;
 	private Object data;
-	private String error;
+	private Object error;
 	private String message;
-	
+	private Boolean success = true;
+
 	public Response() {
-		this.httpStatus = HttpStatus.OK;
-		this.status = HttpStatus.OK.value();
 	}
 	
-	public Response(Object data) {
-		this.data = data;
-	}
-	
-	public Response(int status, HttpStatus httpStatus, Object data, String error, String message) {
+	public Response(int status, HttpStatus httpStatus, Object data, Object error, String message, Boolean success) {
 		super();
 		this.status = status;
 		this.httpStatus = httpStatus;
 		this.data = data;
 		this.error = error;
 		this.message = message;
+		this.success = success;
 	}
 	
 	public int getStatus() {
@@ -50,10 +50,10 @@ public class Response {
 	public void setData(Object data) {
 		this.data = data;
 	}
-	public String getError() {
+	public Object getError() {
 		return error;
 	}
-	public void setError(String error) {
+	public void setError(Object error) {
 		this.error = error;
 	}
 	public String getMessage() {
@@ -61,5 +61,11 @@ public class Response {
 	}
 	public void setMessage(String message) {
 		this.message = message;
+	}
+	public Boolean getSuccess() {
+		return success;
+	}
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 }

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 import vn.dl.dataaccess.provider.UserQueryProvider;
 import vn.dl.domain.User;
-import vn.dl.domain.entity.UserEntity;
 
 @Component
 public class UserQueryManager {
@@ -17,10 +16,5 @@ public class UserQueryManager {
 	public List<User> getAllUser() {
 		List<User> users = userQueryProvider.findAll();
 		return users;
-	}
-	
-	public User findByUsername(String username) {
-		UserEntity userEntity = userQueryProvider.findByUsername(username);
-		return userEntity == null ? null : userEntity.toDomain();
 	}
 }

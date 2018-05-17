@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import vn.dl.business.service.UserCommandManager;
 import vn.dl.business.service.UserQueryManager;
+import vn.dl.domain.ExecutionResult;
 import vn.dl.domain.User;
 
 @Component
@@ -21,12 +22,7 @@ public class UserManager {
 		return userQueryManager.getAllUser();
 	}
 	
-	public User findByUsername(String username) {
-		return userQueryManager.findByUsername(username);
-	}
-	
-	public User saveUser(User user) {
-		// TODO
-		return null;
+	public ExecutionResult insert(User user) {
+		return userCommandManager.insert(user);
 	}
 }

@@ -4,17 +4,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import vn.dl.dataaccess.provider.UserCommandProvider;
+import vn.dl.domain.ExecutionResult;
 import vn.dl.domain.User;
-import vn.dl.domain.entity.UserEntity;
 
 @Component
 public class UserCommandManager {
 	@Autowired
-	private UserCommandProvider userCommandProvider;
+	UserCommandProvider userCommandProvider;
 
-	public User saveUser(User user) {
-		// TODO:
-		UserEntity userEntity = user.toEntity();
-		return null;
+	public ExecutionResult insert(User user) {
+		return userCommandProvider.insert(user.toEntity());
+	}
+	
+	public ExecutionResult update(User user) {
+		return userCommandProvider.update(user.toEntity());
+	}
+	
+	public ExecutionResult delete(User user) {
+		return userCommandProvider.delete(user.toEntity());
 	}
 }

@@ -1,4 +1,4 @@
-package vn.dl.domain.entity;
+package vn.dl.domain;
 
 import java.io.Serializable;
 
