@@ -14,7 +14,7 @@ public class Response {
     private Date timestamp;
     private int status;
     private HttpStatus httpStatus;
-    private String error;
+    private Object error;
     private String message;
     private String path;
 
@@ -68,11 +68,11 @@ public class Response {
         this.httpStatus = httpStatus;
     }
 
-    public String getError() {
+    public Object getError() {
         return error;
     }
 
-    public void setError(String error) {
+    public void setError(Object error) {
         this.error = error;
     }
 

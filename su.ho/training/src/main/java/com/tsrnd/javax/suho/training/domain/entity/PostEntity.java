@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.tsrnd.javax.suho.training.domain.domain.Post;
 
 @Entity
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -72,5 +73,13 @@ public class PostEntity {
 
     public void setIsDelete(Boolean isDelete) {
         this.isDelete = isDelete;
+    }
+    
+    public Post toDomain() {
+        Post post = new Post();
+        post.setId(id);
+        post.setTitle(title);
+        post.setContent(content);
+        return post;
     }
 }

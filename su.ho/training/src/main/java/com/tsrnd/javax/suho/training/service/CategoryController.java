@@ -25,7 +25,7 @@ import com.tsrnd.javax.suho.training.domain.entity.CategoryEntity;
 @RequestMapping("/api/categories")
 public class CategoryController {
     @Autowired
-    CategoryManager categoryManager;
+    private CategoryManager categoryManager;
 
     @GetMapping
     public ResponseEntity<Response> get() {

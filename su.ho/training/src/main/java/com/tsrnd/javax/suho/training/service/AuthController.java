@@ -17,7 +17,7 @@ import com.tsrnd.javax.suho.training.domain.entity.UserEntity;
 @RequestMapping("/api/auth")
 public class AuthController {
     @Autowired
-    UserManager userManager;
+    private UserManager userManager;
 
     @PostMapping(produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
     public ResponseEntity<Response> signIn(@RequestParam(value = "username", required = true) String username,
