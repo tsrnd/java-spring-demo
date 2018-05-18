@@ -1,7 +1,6 @@
 package com.thinhung.restful.controller;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.validation.Valid;
 
@@ -14,10 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.thinhung.restful.common.Data;
 import com.thinhung.restful.common.Meta;
 import com.thinhung.restful.common.Response;
-import com.thinhung.restful.model.domain.Invoice;
 import com.thinhung.restful.repository.InvoiceRepository;
 
 @RestController
@@ -33,10 +30,8 @@ public class InvoiceController {
 			@Valid @DateTimeFormat(pattern = "yyyy-MM-dd") @RequestParam(name = "from_date", required = true) Date fromDate,
 			@Valid @DateTimeFormat(pattern = "yyyy-MM-dd") @RequestParam(name = "to_date", required = true) Date toDate) throws Exception {
 		Meta meta = new Meta(HttpStatus.OK, "");
-		Data<Object> data = new Data<Object>();
 		Object result = invoiceRepository.summary(employeeId, fromDate, toDate);
-		data.setValue(result);
-		Response<Object> response = new Response<>(meta, data); 
+		Response response = new Response(meta, result); 
 		return response;
 	}
 }

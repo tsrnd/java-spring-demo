@@ -2,12 +2,6 @@ package com.thinhung.restful.model.domain;
 
 import java.sql.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Employee {
@@ -73,5 +67,11 @@ public class Employee {
         this.address = address;
         this.phone = phone;
         this.birthday = birthday;
+    }
+    
+    public Employee(Long id, String name) {
+    	super();
+    	this.id = id;
+    	this.name = name;
     }
 }

@@ -1,31 +1,33 @@
 package com.thinhung.restful.model.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Entity
-@Table(name = "Customers")
 public class Customer {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonProperty(value = "id")
 	private Long id;
+	@JsonProperty(value = "name")
 	private String name;
+	@JsonProperty(value = "phone")
 	private String phone;
+	@JsonProperty(value = "address")
 	private String address;
-	
+
 	public Customer() {
 		super();
 	}
-	
+
 	public Customer(Long id, String name, String phone, String address) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.phone = phone;
 		this.address = address;
+	}
+	
+	public Customer(Long id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
 	}
 
 	public Long getId() {

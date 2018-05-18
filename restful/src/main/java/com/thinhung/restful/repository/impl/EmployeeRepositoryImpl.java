@@ -1,4 +1,4 @@
-package com.thinhung.restful.repository;
+package com.thinhung.restful.repository.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,6 +14,7 @@ import com.thinhung.restful.model.entity.CustomerEntity;
 import com.thinhung.restful.model.entity.EmployeeEntity;
 import com.thinhung.restful.model.entity.InvoiceDetailEntity;
 import com.thinhung.restful.model.entity.InvoiceEntity;
+import com.thinhung.restful.repository.extensions.EmployeeRepositoryExtensions;
 
 public class EmployeeRepositoryImpl extends BaseRepositoryImpl implements EmployeeRepositoryExtensions {
 
@@ -28,15 +29,17 @@ public class EmployeeRepositoryImpl extends BaseRepositoryImpl implements Employ
 		 * then find on CUSTOMERS table for getting customer detail of that invoices
 		 * then find on INVOICE_DETAIL for getting detail of that invoices
 		 */
-		String sqlQuery = "SELECT i, e, c, detail FROM InvoiceEntity i INNER JOIN EmployeeEntity e ON i.employeeId = e.id AND e.id = :employeeId INNER JOIN CustomerEntity c ON i.customerId = c.id INNER JOIN InvoiceDetailEntity detail ON i.id = detail.id";
+		String sqlQuery = "SELECT i, e, c, detail FROM InvoiceEntity i" + 
+						  " INNER JOIN EmployeeEntity e ON i.employeeId = e.id AND e.id = :employeeId" + 
+						  " INNER JOIN CustomerEntity c ON i.customerId = c.id"+
+						  " INNER JOIN InvoiceDetailEntity detail ON i.id = detail.id";
 		Query query = this.entityManager.createQuery(sqlQuery);
 		query.setParameter("employeeId", employeeId);
 		@SuppressWarnings("unchecked")
 		List<Object[]> fetchedResults = query.getResultList();
-		List<Map<String, Object>> results = new ArrayList<>();
+		List<Invoice> invoices = new ArrayList<>();
 		Map<String, Object> response = new HashMap<String, Object>();
 		fetchedResults.stream().forEach((record) -> {
-			Map<String, Object> map = new HashMap<String, Object>();
 			InvoiceEntity invoiceEntity = (InvoiceEntity)record[0];
 			Invoice invoice = invoiceEntity.toDomain();
 			invoice.setSellDate(invoiceEntity.getSellDate());
@@ -49,13 +52,12 @@ public class EmployeeRepositoryImpl extends BaseRepositoryImpl implements Employ
 			invoice.setPrice(invoiceDetailEntity.getPrice());
 			invoice.setQuantity(invoiceDetailEntity.getQuantity());
 			invoice.setSaleOff(invoiceDetailEntity.getSaleOff());
-			map.put("invoice", invoice);
-			results.add(map);
+			invoices.add(invoice);
 			EmployeeEntity employeeEntity = (EmployeeEntity)record[1];
 			Employee employee = employeeEntity.toDomain();
 			response.put("employee", employee);
 		});
-		response.put("results", results);
+		response.put("invoices", invoices);
 		return response;
 	}
 }

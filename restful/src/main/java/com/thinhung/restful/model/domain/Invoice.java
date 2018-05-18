@@ -27,6 +27,22 @@ public class Invoice {
 	public Customer getCustomer() {
 		return customer;
 	}
+	public Invoice(Long id, Date sellDate) {
+		super();
+		this.id = id;
+		this.sellDate = sellDate;
+	}
+
+	public Invoice() {
+		super();
+	}
+	
+	public Invoice(Long id, Long totalAmount) {
+		super();
+		this.id = id;
+		this.totalAmount = totalAmount;
+	}
+
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
@@ -78,18 +94,5 @@ public class Invoice {
 	}
 	public void setSaleOff(Long saleOff) {
 		this.saleOff = saleOff;
-	}
-
-	public Invoice() {
-		super();
-	}
-	
-	public Invoice(Long id, Long totalAmount) {
-		super();
-		this.id = id;
-		this.totalAmount = totalAmount;
-	}
-	void toEntity() {
-		
 	}
 }

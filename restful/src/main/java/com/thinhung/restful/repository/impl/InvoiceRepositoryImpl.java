@@ -1,4 +1,4 @@
-package com.thinhung.restful.repository;
+package com.thinhung.restful.repository.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.Query;
 
 import com.thinhung.restful.model.domain.Summary;
+import com.thinhung.restful.repository.extensions.InvoiceRepositoryExtensions;
 
 public class InvoiceRepositoryImpl extends BaseRepositoryImpl implements InvoiceRepositoryExtensions {
     @Override

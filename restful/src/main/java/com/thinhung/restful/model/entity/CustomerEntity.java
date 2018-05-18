@@ -1,19 +1,46 @@
 package com.thinhung.restful.model.entity;
 
 import javax.persistence.Column;
+import javax.persistence.ColumnResult;
+import javax.persistence.ConstructorResult;
 import javax.persistence.Entity;
+import javax.persistence.EntityResult;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SqlResultSetMapping;
+import javax.persistence.SqlResultSetMappings;
 import javax.persistence.Table;
 
 import com.thinhung.restful.model.domain.Customer;
 
 @Entity
 @Table(name = "Customers")
+@SqlResultSetMappings( {
+		@SqlResultSetMapping(
+				name = "CustomerDetail",
+				entities = {
+						@EntityResult(entityClass = CustomerEntity.class)
+				}
+				),
+		@SqlResultSetMapping(
+				name = "CustomerDetail2",
+				classes = {
+						@ConstructorResult(
+								targetClass = Customer.class,
+								columns = {
+										@ColumnResult(name = "id", type = Long.class),
+										@ColumnResult(name = "address", type = String.class)
+								}
+								)
+				}
+				)
+
+})
 public class CustomerEntity implements BaseEntityInterface<Customer>{
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private Long id;
 	@Column(name = "name")
 	private String name;
@@ -21,11 +48,11 @@ public class CustomerEntity implements BaseEntityInterface<Customer>{
 	private String phone;
 	@Column(name = "address")
 	private String address;
-	
+
 	public CustomerEntity() {
-		
+
 	}
-	
+
 	public CustomerEntity(Long id, String name, String phone, String address) {
 		super();
 		this.id = id;
@@ -57,7 +84,7 @@ public class CustomerEntity implements BaseEntityInterface<Customer>{
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
+
 	public String getAddress() {
 		return address;
 	}

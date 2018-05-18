@@ -1,4 +1,4 @@
-package com.thinhung.restful.repository;
+package com.thinhung.restful.repository.impl;
 
 import javax.persistence.EntityManager;
 
