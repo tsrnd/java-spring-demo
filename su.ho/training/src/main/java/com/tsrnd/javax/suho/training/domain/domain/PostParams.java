@@ -1,9 +1,11 @@
 package com.tsrnd.javax.suho.training.domain.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.tsrnd.javax.suho.training.domain.entity.PostCategoryEntity;
 import com.tsrnd.javax.suho.training.domain.entity.PostEntity;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -35,6 +37,17 @@ public class PostParams {
         entity.setContent(content);
         entity.setUserId(userId);
         return entity;
+    }
+    
+    public List<PostCategoryEntity> toPostCategoryEnities() {
+        List<PostCategoryEntity> entities = new ArrayList<>();
+        for (Long categoryId: categoryIds) {
+            PostCategoryEntity entity = new PostCategoryEntity();
+            entity.setCategoryId(categoryId);
+            entity.setPostId(id);
+            entities.add(entity);
+        }
+        return entities;
     }
 
     public Long getId() {

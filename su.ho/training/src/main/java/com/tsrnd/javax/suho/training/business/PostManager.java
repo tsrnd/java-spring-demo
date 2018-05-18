@@ -28,7 +28,8 @@ public class PostManager {
     }
     
     public Post insert(PostParams params) {
-        return postCommandManager.insert(params);
+        Post post = postCommandManager.insert(params);
+        return detail(post.getId());
     }
 
     public Post update(Long id, PostParams params) {
