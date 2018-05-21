@@ -1,0 +1,126 @@
+1.
+
+/*Please add ; after each select statement*/
+CREATE PROCEDURE projectList()
+BEGIN
+	SELECT project_name, team_lead, income FROM Projects;
+END
+
+2.
+/*Please add ; after each select statement*/
+CREATE PROCEDURE countriesSelection()
+BEGIN
+	SELECT name, continent, population FROM countries
+    WHERE continent = 'Africa';
+END
+
+3.
+/*Please add ; after each select statement*/
+CREATE PROCEDURE monthlyScholarships()
+BEGIN
+	UPDATE scholarships
+    SET scholarship = scholarship / 12;
+    SELECT * FROM scholarships;
+END
+
+4.
+/*Please add ; after each select statement*/
+CREATE PROCEDURE projectsTeam()
+BEGIN
+	select name from projectLog
+    group by name;
+END
+
+5.
+CREATE PROCEDURE automaticNotifications()
+    SELECT email
+    FROM users
+    WHERE role not in ("admin", "premium")
+
+    ORDER BY email;
+
+6.
+/*Please add ; after each select statement*/
+CREATE PROCEDURE volleyballResults()
+BEGIN
+	select * from results
+    order by wins;
+END
+
+7.
+/*Please add ; after each select statement*/
+CREATE PROCEDURE mostExpensive()
+BEGIN
+        update Products
+        set price = price * quantity;
+
+        
+         SELECT name FROM Products
+                order by price DESC, name ASC
+                limit 1;
+    
+END
+
+8.
+/*Please add ; after each select statement*/
+CREATE PROCEDURE contestLeaderboard()
+BEGIN
+    select name from leaderboard
+    order by score DESC
+    limit 3, 5;
+    
+END
+
+9.
+/*Please add ; after each select statement*/
+CREATE PROCEDURE gradeDistribution()
+BEGIN
+	select Name, ID from Grades
+    where Final > Midterm1 * 0.25 + Midterm2 * 0.25 + Final * 0.5
+        and Final > Midterm1 * 0.5 + Midterm2 * 0.5
+    order by left(Name,3);
+END
+
+10.
+/*Please add ; after each select statement*/
+CREATE PROCEDURE mischievousNephews()
+BEGIN
+	ALTER TABLE mischief
+    ADD weekday int;
+    ALTER TABLE mischief
+    ADD sort int;
+    update mischief
+    set weekday = weekday(mischief_date);
+    update mischief
+    set sort = 1
+    where author = 'Huey';
+    update mischief
+    set sort = 2
+    where author = 'Dewey';update mischief
+    set sort = 3
+    where author = 'Louie';
+    select weekday, mischief_date, author, title from mischief
+    order by weekday, sort, mischief_date, title;
+END
+
+11.
+/*Please add ; after each select statement*/
+CREATE PROCEDURE suspectsInvestigation()
+BEGIN
+	select id,name,surname 
+    from Suspect
+    where name like 'B%' 
+    and surname like 'Gre_n' 
+    and height <= 170;
+END
+
+12.
+/*Please add ; after each select statement*/
+CREATE PROCEDURE suspectsInvestigation2()
+BEGIN
+	select id,name,surname 
+    from Suspect
+    where (name not like 'B%' 
+    or surname not like 'Gre_n')
+    or height <= 170;
+END
